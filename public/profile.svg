@@ -1,0 +1,22 @@
+<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="portraitGradient" x1="40" y1="40" x2="280" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7C3AED" />
+      <stop offset="50%" stop-color="#0EA5E9" />
+      <stop offset="100%" stop-color="#14B8A6" />
+    </linearGradient>
+    <clipPath id="clipCircle">
+      <circle cx="160" cy="160" r="140" />
+    </clipPath>
+  </defs>
+  <rect width="320" height="320" rx="120" fill="url(#portraitGradient)" />
+  <g clip-path="url(#clipCircle)">
+    <rect x="0" y="0" width="320" height="180" fill="white" fill-opacity="0.25" />
+    <rect x="0" y="180" width="320" height="140" fill="white" fill-opacity="0.2" />
+    <circle cx="160" cy="120" r="62" fill="white" fill-opacity="0.75" />
+    <path d="M160 188C113 188 72 220 60 266C58 272 62.5 278 69 278H251C257.5 278 262 272 260 266C248 220 207 188 160 188Z" fill="white" fill-opacity="0.75" />
+    <circle cx="160" cy="118" r="50" fill="url(#portraitGradient)" opacity="0.65" />
+    <path d="M160 196C198 196 232 214 252 240C233 280 87 280 68 240C88 214 122 196 160 196Z" fill="url(#portraitGradient)" opacity="0.5" />
+  </g>
+  <circle cx="160" cy="160" r="150" stroke="white" stroke-opacity="0.6" stroke-width="6" />
+</svg>
