@@ -1,26 +1,47 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 247 247 255;
+  --foreground: 15 23 42;
+  --muted: 226 232 240;
+  --muted-foreground: 71 85 105;
+  --accent-indigo: 99 102 241;
+  --accent-teal: 20 184 166;
+  --accent-lavender: 196 181 253;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: 10 12 25;
+  --foreground: 226 232 255;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+  --accent-indigo: 129 140 248;
+  --accent-teal: 45 212 191;
+  --accent-lavender: 221 214 254;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    font-family:
+      var(--font-geist-sans),
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .bg-glass {
+    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur border border-white/20 dark:border-white/10;
+  }
 }
