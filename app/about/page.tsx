@@ -55,32 +55,6 @@ const interests = [
   },
 ];
 
-const timeline = [
-  {
-    title: "University of Washington CBE — Software Engineer",
-    year: "Jun 2025 – Present",
-    details:
-      "Built and launched a Python + SQL dashboard to simplify UW's ticketing system for staff, adopted across the IT team to centralize requests and streamline workflows.",
-  },
-  {
-    title: "Personal Robotics Lab — AI Robotics Researcher",
-    year: "Dec 2024 – Jun 2025",
-    details:
-      "Engineered a pipeline for Apple Vision Pro teleoperation using Python + Docker, achieving 88.6% joint alignment and 30% smoother motion. Conducted 100+ simulated trials with CNN-based pose estimation and presented results at the UW Allen School Research Showcase (300+ attendees).",
-  },
-  {
-    title: "The Blue Heron — Software Engineer",
-    year: "Jun 2024 – Sep 2024",
-    details:
-      "Built and deployed a React website that boosted online orders by 20% and traffic by 10%. Collaborated directly with the CEO to iterate on UX and brand alignment.",
-  },
-  {
-    title: "University of Washington — Computer Science B.S.",
-    year: "2023 – 2027",
-    details:
-      "Pursuing Bachelor of Science in Computer Science with focus on AI, robotics, and full-stack development. Current GPA: 3.7",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -159,48 +133,6 @@ export default function AboutPage() {
         </motion.div>
       </motion.section>
 
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="rounded-3xl border border-border bg-white/70 p-10 shadow-md backdrop-blur dark:bg-slate-950/70"
-      >
-        <motion.h2
-          variants={itemVariants}
-          className="text-2xl font-semibold text-foreground"
-        >
-          Timeline
-        </motion.h2>
-        <motion.ul
-          variants={itemVariants}
-          className="mt-8 space-y-6 border-l border-border pl-6"
-        >
-          {timeline.map((entry) => (
-            <motion.li
-              key={entry.title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={itemVariants}
-              className="relative rounded-xl bg-white/60 p-6 shadow-sm ring-1 ring-black/5 transition hover:-translate-y-1 hover:shadow-md dark:bg-slate-950/70"
-            >
-              <span className="absolute -left-[38px] mt-1 flex h-3 w-3 items-center justify-center">
-                <span className="h-3 w-3 rounded-full border border-white bg-accent-indigo shadow" />
-              </span>
-              <p className="text-xs uppercase tracking-widest text-accent-teal">
-                {entry.year}
-              </p>
-              <h3 className="mt-2 text-lg font-semibold text-foreground">
-                {entry.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {entry.details}
-              </p>
-            </motion.li>
-          ))}
-        </motion.ul>
-      </motion.section>
 
       <motion.section
         variants={sectionVariants}

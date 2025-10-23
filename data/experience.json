@@ -13,23 +13,6 @@
     "link": null
   },
   {
-    "role": "AI Robotics Researcher",
-    "company": "Personal Robotics Lab",
-    "duration": "Dec 2024 – Jun 2025",
-    "description": "Engineered a pipeline for Apple Vision Pro teleoperation using Python + Docker, achieving 88.6% joint alignment and 30% smoother motion. Conducted 100+ simulated trials with CNN-based pose estimation and presented results at the UW Allen School Research Showcase (300+ attendees).",
-    "technologies": ["Python", "Docker", "CNN", "PyTorch", "Computer Vision", "Apple Vision Pro"],
-    "link": "https://personalrobotics.cs.washington.edu/",
-    "image": "/app/images/prl.jpeg"
-  },
-  {
-    "role": "Software Engineer",
-    "company": "The Blue Heron",
-    "duration": "Jun 2024 – Sep 2024",
-    "description": "Built and deployed a React website that boosted online orders by 20% and traffic by 10%. Collaborated directly with the CEO to iterate on UX and brand alignment.",
-    "technologies": ["React", "JavaScript", "Web Development", "UX Design"],
-    "link": "https://blueheronmagnolia.com/"
-  },
-  {
     "role": "External Relations Officer",
     "company": "Student Advisory Council",
     "duration": "Sep 2024 – Present",
@@ -38,12 +21,28 @@
     "link": "https://sac.cs.washington.edu/"
   },
   {
+    "role": "AI Robotics Researcher",
+    "company": "Personal Robotics Lab",
+    "duration": "Dec 2024 – Jun 2025",
+    "description": "Engineered a pipeline for Apple Vision Pro teleoperation using Python + Docker, achieving 88.6% joint alignment and 30% smoother motion. Conducted 100+ simulated trials with CNN-based pose estimation and presented results at the UW Allen School Research Showcase (300+ attendees).",
+    "technologies": ["Python", "Docker", "CNN", "PyTorch", "Computer Vision", "Apple Vision Pro"],
+    "link": "https://personalrobotics.cs.washington.edu/"
+  },
+  {
     "role": "Undergraduate Researcher",
     "company": "Sensors, Energy & Automation Laboratory (SEAL)",
     "duration": "Sep 2024 – Dec 2024",
     "description": "Developed automated solutions using Python + Google Apps Script to boost lab throughput by 20%. Automated data analysis pipelines to reduce manual processing.",
     "technologies": ["Python", "Google Apps Script", "Data Analysis", "Automation"],
     "link": "https://www.uwseal.org/"
+  },
+  {
+    "role": "Software Engineer",
+    "company": "The Blue Heron",
+    "duration": "Jun 2024 – Sep 2024",
+    "description": "Built and deployed a React website that boosted online orders by 20% and traffic by 10%. Collaborated directly with the CEO to iterate on UX and brand alignment.",
+    "technologies": ["React", "JavaScript", "Web Development", "UX Design"],
+    "link": "https://blueheronmagnolia.com/"
   },
   {
     "role": "Artificial Intelligence Research Intern",

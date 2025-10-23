@@ -20,7 +20,7 @@ export function Navbar() {
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-6">
         <Link
           href="/"
-          className="text-xl font-bold tracking-tight transition hover:scale-105"
+          className="text-xl font-bold tracking-tight text-foreground transition hover:scale-105"
         >
           <span className="bg-gradient-to-r from-accent-indigo to-accent-teal bg-clip-text text-transparent">
             Minjoon
