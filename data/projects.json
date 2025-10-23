@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Neural Trailblazer",
+    "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80",
+    "description": "A filler experimental analytics suite that stitches telemetry with large language models to surface narratives for product teams in real time.",
+    "tags": ["Next.js", "TypeScript", "OpenAI", "Edge Functions"],
+    "links": {
+      "github": "https://github.com/JoonEom/neural-trailblazer",
+      "demo": "https://neural-trailblazer.example.com"
+    }
+  },
+  {
+    "title": "Atlas Sketchpad",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
+    "description": "A filler collaborative whiteboard for distributed teams with real-time cursors, AI-assisted summaries, and extensible plugin architecture.",
+    "tags": ["React", "WebRTC", "Tailwind CSS", "Redis"],
+    "links": {
+      "github": "https://github.com/JoonEom/atlas-sketchpad",
+      "demo": "https://atlas-sketchpad.example.com"
+    }
+  },
+  {
+    "title": "Pulse Orchestrator",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+    "description": "A filler operations dashboard that wrangles event streams into proactive alerts, marrying observability data with natural language playbooks.",
+    "tags": ["Go", "Kafka", "Grafana", "Terraform"],
+    "links": {
+      "github": "https://github.com/JoonEom/pulse-orchestrator",
+      "demo": "https://pulse-orchestrator.example.com"
+    }
+  }
+]
