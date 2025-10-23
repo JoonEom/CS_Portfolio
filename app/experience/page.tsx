@@ -22,12 +22,10 @@ export default async function ExperiencePage() {
           Experience
         </span>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Building resilient products and curious experiments.
+          Building systems that connect people and data.
         </h1>
         <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          A vertical snapshot of filler roles where I balanced shipping
-          features, iterating on research, and guiding teams toward reliable,
-          human-centered engineering outcomes.
+          A timeline of my professional experience spanning software engineering, AI research, and full-stack development at the University of Washington and beyond.
         </p>
       </header>
 

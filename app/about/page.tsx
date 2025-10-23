@@ -24,61 +24,61 @@ const itemVariants = {
 
 const interests = [
   {
-    label: "Human-centered AI",
-    description: "Responsible, interpretable systems",
+    label: "AI Robotics",
+    description: "Computer vision and teleoperation systems",
     icon: Brain,
   },
   {
-    label: "Distributed systems",
-    description: "Resilient cloud architectures",
+    label: "Distributed Systems",
+    description: "Scalable cloud architectures",
     icon: Cpu,
   },
   {
-    label: "Data storytelling",
-    description: "Interactive, narrative analytics",
+    label: "Human-Computer Interaction",
+    description: "Intuitive user interfaces",
     icon: BookOpen,
   },
   {
-    label: "Scientific computing",
-    description: "Numerical modeling & simulation",
+    label: "Full-Stack Development",
+    description: "End-to-end web applications",
     icon: Atom,
   },
   {
-    label: "Field research",
-    description: "Global social impact studies",
+    label: "Machine Learning",
+    description: "Deep learning and neural networks",
     icon: Compass,
   },
   {
-    label: "Lab collaboration",
-    description: "Cross-disciplinary prototyping",
+    label: "Research",
+    description: "Academic and industry collaboration",
     icon: Microscope,
   },
 ];
 
 const timeline = [
   {
-    title: "Ph.D. in Computer Science, MIT",
-    year: "2023 — Present",
+    title: "University of Washington CBE — Software Engineer",
+    year: "Jun 2025 – Present",
     details:
-      "Researching human-AI collaboration for decision support, blending cognitive science and interactive systems design.",
+      "Built and launched a Python + SQL dashboard to simplify UW's ticketing system for staff, adopted across the IT team to centralize requests and streamline workflows.",
   },
   {
-    title: "M.S. in Computational Design, Stanford",
-    year: "2021",
+    title: "Personal Robotics Lab — AI Robotics Researcher",
+    year: "Dec 2024 – Jun 2025",
     details:
-      "Investigated adaptive interfaces for complex data exploration; thesis received the program innovation award.",
+      "Engineered a pipeline for Apple Vision Pro teleoperation using Python + Docker, achieving 88.6% joint alignment and 30% smoother motion. Conducted 100+ simulated trials with CNN-based pose estimation and presented results at the UW Allen School Research Showcase (300+ attendees).",
   },
   {
-    title: "Senior Software Engineer, Atlas Labs",
-    year: "2018 — 2020",
+    title: "The Blue Heron — Software Engineer",
+    year: "Jun 2024 – Sep 2024",
     details:
-      "Led a platform team delivering ML-driven analytics to Fortune 100 clients with 99.95% uptime across multi-cloud regions.",
+      "Built and deployed a React website that boosted online orders by 20% and traffic by 10%. Collaborated directly with the CEO to iterate on UX and brand alignment.",
   },
   {
-    title: "B.S. in Computer Engineering, KAIST",
-    year: "2017",
+    title: "University of Washington — Computer Science B.S.",
+    year: "2023 – 2027",
     details:
-      "Graduated magna cum laude with a focus on embedded intelligence and large-scale simulation research.",
+      "Pursuing Bachelor of Science in Computer Science with focus on AI, robotics, and full-stack development. Current GPA: 3.7",
   },
 ];
 
@@ -112,33 +112,26 @@ export default function AboutPage() {
               Minjoon Eom
             </h1>
             <p className="text-base leading-relaxed text-muted-foreground">
-              I am a full stack developer and AI researcher studying how humans
-              partner with intelligent tools. My journey spans human-computer
-              interaction, large-scale distributed systems, and field research
-              on technology&apos;s role in social resilience. Current interests
-              include trustworthy decision support, interpretable agents, and
-              communities that synthesize research into accessible narratives.
+              I'm Minjoon Eom, a Computer Science student at the University of Washington (Class of 2027) passionate about full-stack development, AI research, and building systems that connect people and data.
             </p>
             <ul className="grid gap-2 text-sm text-muted-foreground/80">
               <li>
                 <span className="font-semibold text-foreground">
                   Education:
                 </span>
-                MIT (Ph.D.), Stanford (M.S.), KAIST (B.S.)
+                UW Computer Science B.S. (3.7 GPA, Seattle WA)
               </li>
               <li>
                 <span className="font-semibold text-foreground">
-                  Background:
+                  Interests:
                 </span>
-                Platform engineering, interactive visualization, global research
-                fellowships
+                AI robotics, distributed systems, human-computer interaction
               </li>
               <li>
                 <span className="font-semibold text-foreground">
-                  Research Interests:
+                  Skills:
                 </span>
-                Human-centered AI, cooperative autonomy, resilient knowledge
-                systems
+                Python, Java, TypeScript, SQL, React, Next.js, Docker, AWS, PyTorch
               </li>
             </ul>
           </div>

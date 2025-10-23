@@ -1,29 +1,28 @@
 [
   {
-    "role": "Senior Full Stack Engineer",
-    "company": "Filler Labs",
-    "duration": "2023 — Present",
-    "description": "Leading a filler cross-functional pod to ship responsive web experiences while prototyping AI-assisted workflows that keep the product roadmap moving.",
+    "role": "Software Engineer",
+    "company": "University of Washington CBE",
+    "duration": "Jun 2025 – Present",
+    "description": "Built and launched a Python + SQL dashboard to simplify UW's ticketing system for staff, adopted across the IT team to centralize requests and streamline workflows.",
     "technologies": [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "GraphQL",
-      "OpenAI API"
+      "Python",
+      "SQL",
+      "Dashboard Development",
+      "IT Systems"
     ]
   },
   {
-    "role": "AI Research Engineer",
-    "company": "Placeholder Research Collective",
-    "duration": "2021 — 2023",
-    "description": "Explored filler multimodal models and distilled findings into lightweight demos that helped stakeholders understand the opportunity space for intelligent interfaces.",
-    "technologies": ["PyTorch", "HuggingFace", "TensorFlow", "TorchServe"]
+    "role": "AI Robotics Researcher",
+    "company": "Personal Robotics Lab",
+    "duration": "Dec 2024 – Jun 2025",
+    "description": "Engineered a pipeline for Apple Vision Pro teleoperation using Python + Docker, achieving 88.6% joint alignment and 30% smoother motion. Conducted 100+ simulated trials with CNN-based pose estimation and presented results at the UW Allen School Research Showcase (300+ attendees).",
+    "technologies": ["Python", "Docker", "CNN", "PyTorch", "Computer Vision", "Apple Vision Pro"]
   },
   {
     "role": "Software Engineer",
-    "company": "Fabricated Systems",
-    "duration": "2019 — 2021",
-    "description": "Built filler event-driven services and dashboards that improved developer visibility into system health and empowered teams to iterate faster.",
-    "technologies": ["React", "Node.js", "Kubernetes", "PostgreSQL"]
+    "company": "The Blue Heron",
+    "duration": "Jun 2024 – Sep 2024",
+    "description": "Built and deployed a React website that boosted online orders by 20% and traffic by 10%. Collaborated directly with the CEO to iterate on UX and brand alignment.",
+    "technologies": ["React", "JavaScript", "Web Development", "UX Design"]
   }
 ]
