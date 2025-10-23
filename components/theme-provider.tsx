@@ -45,17 +45,28 @@ function getInitialTheme(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => getInitialTheme());
+  const [theme, setTheme] = useState<Theme>("light"); // Default to light for SSR
+  const [mounted, setMounted] = useState(false);
+
+  // Initialize theme after hydration
+  useEffect(() => {
+    setTheme(getInitialTheme());
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
+    
     const root = document.documentElement;
     root.classList.remove(theme === "dark" ? "light" : "dark");
     root.classList.add(theme);
     root.dataset.theme = theme;
     window.localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
+  }, [theme, mounted]);
 
   useEffect(() => {
+    if (!mounted) return;
+    
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const listener = () => {
       setTheme((current) => {
@@ -69,7 +80,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     media.addEventListener("change", listener);
     return () => media.removeEventListener("change", listener);
-  }, []);
+  }, [mounted]);
 
   const toggleTheme = useCallback(() => {
     setTheme((current) => (current === "dark" ? "light" : "dark"));

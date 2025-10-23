@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./theme-provider";
+import { useEffect, useState } from "react";
 
 const buttonVariants = {
   light: {
@@ -17,6 +18,21 @@ const buttonVariants = {
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Only render after hydration to prevent mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // Return a placeholder that matches the server-side render
+    return (
+      <div className="relative inline-flex h-10 w-12 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/80 text-sm font-medium shadow-sm dark:border-white/10 dark:bg-slate-900/60">
+        <Sun className="h-5 w-5" aria-hidden="true" />
+      </div>
+    );
+  }
 
   return (
     <motion.button
