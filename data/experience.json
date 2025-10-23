@@ -1,0 +1,29 @@
+[
+  {
+    "role": "Senior Full Stack Engineer",
+    "company": "Filler Labs",
+    "duration": "2023 — Present",
+    "description": "Leading a filler cross-functional pod to ship responsive web experiences while prototyping AI-assisted workflows that keep the product roadmap moving.",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "GraphQL",
+      "OpenAI API"
+    ]
+  },
+  {
+    "role": "AI Research Engineer",
+    "company": "Placeholder Research Collective",
+    "duration": "2021 — 2023",
+    "description": "Explored filler multimodal models and distilled findings into lightweight demos that helped stakeholders understand the opportunity space for intelligent interfaces.",
+    "technologies": ["PyTorch", "HuggingFace", "TensorFlow", "TorchServe"]
+  },
+  {
+    "role": "Software Engineer",
+    "company": "Fabricated Systems",
+    "duration": "2019 — 2021",
+    "description": "Built filler event-driven services and dashboards that improved developer visibility into system health and empowered teams to iterate faster.",
+    "technologies": ["React", "Node.js", "Kubernetes", "PostgreSQL"]
+  }
+]
