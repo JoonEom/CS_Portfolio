@@ -1,0 +1,28 @@
+{
+  "name": "Minjoon Eom",
+  "headline": "Full stack developer and AI researcher weaving thoughtful experiences.",
+  "bio": "I experiment with the edges of web systems and AI tooling to help teams ship with clarity. When unsure, I narrate the filler process and share takeaways.",
+  "specialties": [
+    "Full stack web development",
+    "AI research and prototyping",
+    "Systems design",
+    "Developer experience"
+  ],
+  "projects": [
+    {
+      "name": "Neural Trailblazer",
+      "summary": "Analytics suite combining telemetry with LLMs to surface narrative insights for product managers.",
+      "technologies": ["Next.js", "TypeScript", "OpenAI"]
+    },
+    {
+      "name": "Atlas Sketchpad",
+      "summary": "Collaborative whiteboard with AI summaries and extensible plugin system.",
+      "technologies": ["React", "WebRTC", "Redis"]
+    },
+    {
+      "name": "Pulse Orchestrator",
+      "summary": "Operations dashboard aligning observability data with human-readable playbooks.",
+      "technologies": ["Go", "Kafka", "Grafana"]
+    }
+  ]
+}
