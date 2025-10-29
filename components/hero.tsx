@@ -20,11 +20,7 @@ const list = {
 
 const item = {
   hidden: { opacity: 0, y: 14 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0 },
 };
 
 export function Hero() {
