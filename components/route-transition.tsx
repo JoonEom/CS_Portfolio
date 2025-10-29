@@ -15,7 +15,7 @@ export function RouteTransition({ children }: { children: ReactNode }) {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -18 }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
       >
         {children}
       </motion.section>

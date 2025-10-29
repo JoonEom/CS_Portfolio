@@ -19,11 +19,7 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
-  },
+  visible: { opacity: 1, y: 0 },
 };
 
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
@@ -33,12 +29,14 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
+      transition={{ staggerChildren: 0.1, delayChildren: 0.1 }}
     >
       {projects.map((project) => (
         <motion.article
           key={project.title}
           variants={cardVariants}
           whileHover={{ y: -8 }}
+          transition={{ duration: 0.45, ease: "easeOut" }}
           className="group flex flex-col overflow-hidden rounded-3xl border border-orange-200 bg-orange-50/80 shadow-sm transition hover:shadow-lg dark:bg-orange-950/70"
         >
           <div className="relative h-56 w-full overflow-hidden">
