@@ -22,6 +22,11 @@ export interface HeroConfig {
       href: string;
     };
   };
+  stats: {
+    gpa: string;
+    basketball: string;
+    graduation: string;
+  };
 }
 
 export interface AboutConfig {
