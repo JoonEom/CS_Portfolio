@@ -17,6 +17,3 @@ export const getAboutContent = () => content.about;
 export const getExperienceContent = () => content.experience;
 export const getProjectsContent = () => content.projects;
 export const getContactContent = () => content.contact;
-
-// Export all content for easy access
-export { experience, projects };
