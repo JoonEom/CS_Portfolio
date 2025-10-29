@@ -54,7 +54,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="flex min-h-screen flex-col bg-orange-50 dark:bg-orange-950">
             <Navbar />
-            <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
+            <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-6 sm:py-12">
               <RouteTransition>{children}</RouteTransition>
             </main>
             <Footer />

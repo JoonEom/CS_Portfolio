@@ -25,7 +25,7 @@ const itemVariants = {
 
 export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {entries.map((entry, index) => (
         <motion.div
           key={`${entry.company}-${entry.role}-${index}`}
@@ -38,37 +38,37 @@ export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
         >
           {/* Gradient divider */}
           {index > 0 && (
-            <div className="mb-8 h-px bg-gradient-to-r from-transparent via-orange-400/20 to-transparent" />
+            <div className="mb-6 h-px bg-gradient-to-r from-transparent via-orange-400/20 to-transparent sm:mb-8" />
           )}
           
-          <div className="relative overflow-hidden rounded-2xl border border-orange-200 bg-orange-50/80 p-8 shadow-sm backdrop-blur dark:bg-orange-950/70">
+          <div className="relative overflow-hidden rounded-xl border border-orange-200 bg-orange-50/80 p-4 shadow-sm backdrop-blur dark:bg-orange-950/70 sm:rounded-2xl sm:p-6 lg:p-8">
             <div className="relative z-10">
               {/* Header */}
-              <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mb-3 flex flex-col gap-2 sm:mb-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-xl font-semibold text-foreground">
+                  <h3 className="text-lg font-semibold text-foreground sm:text-xl">
                     {entry.role}
                   </h3>
                   <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
                     {entry.company}
                   </span>
                 </div>
-                <span className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
+                <span className="text-xs font-medium uppercase tracking-wide text-muted-foreground sm:text-sm">
                   {entry.duration}
                 </span>
               </div>
 
               {/* Description */}
-              <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+              <p className="mb-3 text-sm leading-relaxed text-muted-foreground sm:mb-4">
                 {entry.description}
               </p>
 
               {/* Technologies */}
-              <div className="mb-4 flex flex-wrap gap-2">
+              <div className="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
                 {entry.technologies.map((tech) => (
                   <span
                     key={`${entry.company}-${tech}`}
-                    className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-900/30 dark:text-orange-300"
+                    className="rounded-full bg-orange-100 px-2.5 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-900/30 dark:text-orange-300 sm:px-3"
                   >
                     {tech}
                   </span>

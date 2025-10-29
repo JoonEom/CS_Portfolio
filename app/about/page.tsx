@@ -28,39 +28,39 @@ export default function AboutPage() {
   const aboutContent = getAboutContent();
   
   return (
-    <div className="space-y-16">
+    <div className="space-y-12 sm:space-y-16">
       <motion.section
         variants={sectionVariants}
         initial="hidden"
         animate="visible"
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="grid gap-10 rounded-3xl border border-orange-200 bg-orange-50/80 p-10 shadow-lg backdrop-blur dark:bg-orange-950/70 md:grid-cols-[1fr_1.2fr]"
+        className="grid gap-6 rounded-2xl border border-orange-200 bg-orange-50/80 p-6 shadow-lg backdrop-blur dark:bg-orange-950/70 sm:gap-8 sm:rounded-3xl sm:p-8 md:grid-cols-[1fr_1.2fr] md:gap-10 md:p-10"
       >
         <motion.div
           variants={itemVariants}
           initial="hidden"
           animate="visible"
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="flex flex-col items-center gap-6 text-center md:items-start md:text-left"
+          className="flex flex-col items-center gap-4 text-center md:items-start md:text-left sm:gap-6"
         >
-          <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-orange-400/50 shadow-xl">
+          <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-orange-400/50 shadow-xl sm:h-40 sm:w-40">
             <Image
               src="/images/profile3.jpeg"
               alt={`Portrait of ${aboutContent.name}`}
               fill
-              sizes="160px"
+              sizes="(min-width: 640px) 160px, 128px"
               className="object-cover object-center scale-150"
               priority
             />
           </div>
-          <div className="space-y-4">
-            <h1 className="text-3xl font-semibold text-foreground sm:text-4xl">
+          <div className="space-y-3 sm:space-y-4">
+            <h1 className="text-2xl font-semibold text-foreground sm:text-3xl md:text-4xl">
               {aboutContent.name}
             </h1>
-            <p className="text-base leading-relaxed text-muted-foreground">
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
               {aboutContent.bio}
             </p>
-            <ul className="grid gap-2 text-sm text-muted-foreground/80">
+            <ul className="grid gap-1.5 text-xs text-muted-foreground/80 sm:gap-2 sm:text-sm">
               <li>
                 <span className="font-semibold text-foreground">
                   Education:
@@ -88,22 +88,22 @@ export default function AboutPage() {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.1 }}
-          className="space-y-6 rounded-2xl border border-dashed border-orange-300/40 bg-orange-100/20 p-8 shadow-inner dark:border-orange-600/40 dark:bg-orange-900/20"
+          className="space-y-4 rounded-xl border border-dashed border-orange-300/40 bg-orange-100/20 p-4 shadow-inner dark:border-orange-600/40 dark:bg-orange-900/20 sm:space-y-6 sm:rounded-2xl sm:p-6 md:p-8"
         >
-          <h2 className="text-xl font-semibold text-foreground">{aboutContent.coreThemes.title}</h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <h2 className="text-lg font-semibold text-foreground sm:text-xl">{aboutContent.coreThemes.title}</h2>
+          <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
             {aboutContent.coreThemes.description1}
           </p>
-          <p className="text-sm leading-relaxed text-muted-foreground">
+          <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
             {aboutContent.coreThemes.description2}
           </p>
           {aboutContent.coreThemes.description3 && (
-            <p className="text-sm leading-relaxed text-muted-foreground">
+            <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
               {aboutContent.coreThemes.description3}
             </p>
           )}
           {aboutContent.coreThemes.description4 && (
-            <p className="text-sm leading-relaxed text-muted-foreground">
+            <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
               {aboutContent.coreThemes.description4}
             </p>
           )}
@@ -117,16 +117,16 @@ export default function AboutPage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-orange-100/20 to-orange-200/30 p-10 shadow-lg backdrop-blur dark:from-orange-950 dark:via-orange-900/70 dark:to-orange-950"
+        className="rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 via-orange-100/20 to-orange-200/30 p-6 shadow-lg backdrop-blur dark:from-orange-950 dark:via-orange-900/70 dark:to-orange-950 sm:rounded-3xl sm:p-8 md:p-10"
       >
         <motion.h2
           variants={itemVariants}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-2xl font-semibold text-foreground"
+          className="text-xl font-semibold text-foreground sm:text-2xl"
         >
           {aboutContent.interestsSection.title}
         </motion.h2>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:mt-8 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {aboutContent.interestsSection.items.map((interest, index) => {
             const Icon = iconMap[interest.icon as keyof typeof iconMap];
             return (
@@ -137,15 +137,15 @@ export default function AboutPage() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.05, duration: 0.4 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="group rounded-2xl border border-orange-200/50 bg-orange-50/70 p-6 shadow-md transition dark:border-orange-800/50 dark:bg-orange-950/70"
+                className="group rounded-xl border border-orange-200/50 bg-orange-50/70 p-4 shadow-md transition dark:border-orange-800/50 dark:bg-orange-950/70 sm:rounded-2xl sm:p-6"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600 transition group-hover:bg-orange-600 group-hover:text-white">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-orange-100 text-orange-600 transition group-hover:bg-orange-600 group-hover:text-white sm:h-12 sm:w-12 sm:rounded-xl">
+                  <Icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-foreground">
+                <h3 className="mt-3 text-base font-semibold text-foreground sm:mt-4 sm:text-lg">
                   {interest.label}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:mt-2 sm:text-sm">
                   {interest.description}
                 </p>
               </motion.div>

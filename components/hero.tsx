@@ -27,12 +27,12 @@ export function Hero() {
   const heroContent = getHeroContent();
   
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-white to-orange-100/30 p-10 shadow-lg dark:from-orange-950 dark:via-orange-900 dark:to-orange-950/20">
+    <section className="relative overflow-hidden rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 via-white to-orange-100/30 p-6 shadow-lg dark:from-orange-950 dark:via-orange-900 dark:to-orange-950/20 sm:rounded-3xl sm:p-8 lg:p-10">
       {/* Basketball Court Lines Background */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-orange-600"></div>
-        <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-orange-600"></div>
-        <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-600"></div>
+        <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-orange-600 sm:h-32 sm:w-32"></div>
+        <div className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-600 sm:h-16 sm:w-16"></div>
       </div>
 
       <motion.div
@@ -40,7 +40,7 @@ export function Hero() {
         animate="visible"
         variants={container}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative z-10 max-w-3xl space-y-8"
+        className="relative z-10 max-w-3xl space-y-6 sm:space-y-8"
       >
         <motion.span
           variants={item}
@@ -54,7 +54,7 @@ export function Hero() {
         <motion.h1
           variants={item}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl dark:text-white"
+          className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl dark:text-white"
         >
           {heroContent.title}
         </motion.h1>
@@ -62,7 +62,7 @@ export function Hero() {
         <motion.p
           variants={item}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="text-lg leading-relaxed text-gray-600 sm:text-xl dark:text-gray-300"
+          className="text-base leading-relaxed text-gray-600 sm:text-lg md:text-xl dark:text-gray-300"
         >
           {heroContent.subtitle}
         </motion.p>
@@ -72,12 +72,12 @@ export function Hero() {
           initial="hidden"
           animate="visible"
           transition={{ delayChildren: 0.2, staggerChildren: 0.08 }}
-          className="flex flex-col gap-4 sm:flex-row"
+          className="flex flex-col gap-3 sm:flex-row sm:gap-4"
         >
           <motion.div variants={item} transition={{ duration: 0.4, ease: "easeOut" }}>
             <Link
               href={heroContent.buttons.primary.href}
-              className="group inline-flex items-center gap-2 rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-xl"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-xl sm:w-auto"
             >
               <Target className="h-4 w-4" />
               {heroContent.buttons.primary.text}
@@ -87,7 +87,7 @@ export function Hero() {
           <motion.div variants={item} transition={{ duration: 0.4, ease: "easeOut" }}>
             <Link
               href={heroContent.buttons.secondary.href}
-              className="inline-flex items-center gap-2 rounded-full border-2 border-orange-300 px-6 py-3 text-sm font-semibold text-orange-700 transition hover:border-orange-400 hover:bg-orange-50 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-orange-900/20"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-orange-300 px-6 py-3 text-sm font-semibold text-orange-700 transition hover:border-orange-400 hover:bg-orange-50 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-orange-900/20 sm:w-auto"
             >
               <Trophy className="h-4 w-4" />
               {heroContent.buttons.secondary.text}
@@ -99,18 +99,18 @@ export function Hero() {
         <motion.div
           variants={item}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="mt-8 grid grid-cols-3 gap-4 rounded-2xl bg-white/50 p-4 backdrop-blur dark:bg-orange-900/50"
+          className="mt-6 grid grid-cols-3 gap-3 rounded-xl bg-white/50 p-3 backdrop-blur dark:bg-orange-900/50 sm:mt-8 sm:gap-4 sm:rounded-2xl sm:p-4"
         >
           <div className="text-center">
-            <div className="text-2xl font-bold text-orange-600">{heroContent.stats.gpa}</div>
+            <div className="text-xl font-bold text-orange-600 sm:text-2xl">{heroContent.stats.gpa}</div>
             <div className="text-xs text-gray-600 dark:text-gray-400">GPA</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-orange-600">{heroContent.stats.basketball}</div>
+            <div className="text-xl font-bold text-orange-600 sm:text-2xl">{heroContent.stats.basketball}</div>
             <div className="text-xs text-gray-600 dark:text-gray-400">Lifetime Points</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-orange-600">{heroContent.stats.graduation}</div>
+            <div className="text-xl font-bold text-orange-600 sm:text-2xl">{heroContent.stats.graduation}</div>
             <div className="text-xs text-gray-600 dark:text-gray-400">Graduation</div>
           </div>
         </motion.div>
@@ -122,7 +122,7 @@ export function Hero() {
         initial={{ opacity: 0, scale: 0.8, rotate: -15 }}
         animate={{ opacity: 0.3, scale: 1, rotate: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 blur-2xl"
+        className="absolute -right-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 blur-2xl sm:-right-20 sm:-top-20 sm:h-40 sm:w-40"
       />
       
       {/* Basketball Pattern */}
@@ -131,9 +131,9 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute right-8 top-8"
+        className="absolute right-4 top-4 sm:right-8 sm:top-8"
       >
-        <BasketballIcon className="h-16 w-16 text-orange-600" />
+        <BasketballIcon className="h-12 w-12 text-orange-600 sm:h-16 sm:w-16" />
       </motion.div>
     </section>
   );
