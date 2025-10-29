@@ -7,20 +7,12 @@ import { getAboutContent } from "@/lib/content";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 32 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0 },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
+  visible: { opacity: 1, y: 0 },
 };
 
 const iconMap = {
@@ -41,12 +33,14 @@ export default function AboutPage() {
         variants={sectionVariants}
         initial="hidden"
         animate="visible"
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="grid gap-10 rounded-3xl border border-orange-200 bg-orange-50/80 p-10 shadow-lg backdrop-blur dark:bg-orange-950/70 md:grid-cols-[1fr_1.2fr]"
       >
         <motion.div
           variants={itemVariants}
           initial="hidden"
           animate="visible"
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="flex flex-col items-center gap-6 text-center md:items-start md:text-left"
         >
           <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-orange-400/50 shadow-xl">
@@ -122,10 +116,12 @@ export default function AboutPage() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-orange-100/20 to-orange-200/30 p-10 shadow-lg backdrop-blur dark:from-orange-950 dark:via-orange-900/70 dark:to-orange-950"
       >
         <motion.h2
           variants={itemVariants}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-2xl font-semibold text-foreground"
         >
           {aboutContent.interestsSection.title}
