@@ -17,9 +17,9 @@ const config: Config = {
         muted: "rgb(var(--muted) / <alpha-value>)",
         "muted-foreground": "rgb(var(--muted-foreground) / <alpha-value>)",
         accent: {
-          indigo: "rgb(var(--accent-indigo) / <alpha-value>)",
-          teal: "rgb(var(--accent-teal) / <alpha-value>)",
-          lavender: "rgb(var(--accent-lavender) / <alpha-value>)",
+          orange: "rgb(var(--accent-orange) / <alpha-value>)",
+          amber: "rgb(var(--accent-amber) / <alpha-value>)",
+          yellow: "rgb(var(--accent-yellow) / <alpha-value>)",
         },
       },
       fontFamily: {
@@ -28,10 +28,10 @@ const config: Config = {
       },
       backgroundImage: {
         "accent-gradient":
-          "linear-gradient(135deg, rgb(var(--accent-indigo)), rgb(var(--accent-teal)), rgb(var(--accent-lavender)))",
+          "linear-gradient(135deg, rgb(var(--accent-orange)), rgb(var(--accent-amber)), rgb(var(--accent-yellow)))",
       },
       boxShadow: {
-        glow: "0 25px 50px -12px rgb(var(--accent-indigo) / 0.35)",
+        glow: "0 25px 50px -12px rgb(var(--accent-orange) / 0.35)",
       },
     },
   },

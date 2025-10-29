@@ -3,16 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
-
-export type ExperienceEntry = {
-  role: string;
-  company: string;
-  duration: string;
-  description: string;
-  technologies: string[];
-  link?: string | null;
-  image?: string;
-};
+import { ExperienceEntry } from "@/types/content";
 
 type ExperienceTimelineProps = {
   entries: ExperienceEntry[];
@@ -50,10 +41,10 @@ export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
         >
           {/* Gradient divider */}
           {index > 0 && (
-            <div className="mb-8 h-px bg-gradient-to-r from-transparent via-accent-indigo/20 to-transparent" />
+            <div className="mb-8 h-px bg-gradient-to-r from-transparent via-orange-400/20 to-transparent" />
           )}
           
-          <div className="relative overflow-hidden rounded-2xl border border-border bg-white/80 p-8 shadow-sm backdrop-blur dark:bg-slate-950/70">
+          <div className="relative overflow-hidden rounded-2xl border border-orange-200 bg-orange-50/80 p-8 shadow-sm backdrop-blur dark:bg-orange-950/70">
             <div className="relative z-10">
               {/* Header */}
               <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -61,7 +52,7 @@ export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
                   <h3 className="text-xl font-semibold text-foreground">
                     {entry.role}
                   </h3>
-                  <span className="text-sm font-medium text-accent-indigo dark:text-accent-lavender">
+                  <span className="text-sm font-medium text-orange-600 dark:text-orange-400">
                     {entry.company}
                   </span>
                 </div>
@@ -80,7 +71,7 @@ export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
                 {entry.technologies.map((tech) => (
                   <span
                     key={`${entry.company}-${tech}`}
-                    className="rounded-full bg-accent-lavender/20 px-3 py-1 text-xs font-semibold text-accent-indigo dark:bg-accent-indigo/20 dark:text-accent-lavender"
+                    className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-900/30 dark:text-orange-300"
                   >
                     {tech}
                   </span>
@@ -93,7 +84,7 @@ export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
                   href={entry.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-accent-indigo px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent-indigo/90 hover:shadow-md"
+                  className="inline-flex items-center gap-2 rounded-full bg-orange-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-orange-700 hover:shadow-md"
                 >
                   <ExternalLink className="h-4 w-4" />
                   Link

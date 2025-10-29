@@ -7,12 +7,12 @@ import { useEffect, useState } from "react";
 
 const buttonVariants = {
   light: {
-    backgroundColor: "rgb(var(--accent-teal) / 0.15)",
-    color: "rgb(var(--accent-teal))",
+    backgroundColor: "rgb(var(--accent-orange) / 0.15)",
+    color: "rgb(var(--accent-orange))",
   },
   dark: {
-    backgroundColor: "rgb(var(--accent-indigo) / 0.2)",
-    color: "rgb(var(--accent-indigo))",
+    backgroundColor: "rgb(var(--accent-amber) / 0.2)",
+    color: "rgb(var(--accent-amber))",
   },
 };
 
@@ -28,7 +28,7 @@ export function ThemeToggle() {
   if (!mounted) {
     // Return a placeholder that matches the server-side render
     return (
-      <div className="relative inline-flex h-10 w-12 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/80 text-sm font-medium shadow-sm dark:border-white/10 dark:bg-slate-900/60">
+      <div className="relative inline-flex h-10 w-12 items-center justify-center overflow-hidden rounded-full border border-orange-200/20 bg-orange-50/80 text-sm font-medium shadow-sm dark:border-orange-800/20 dark:bg-orange-950/60">
         <Sun className="h-5 w-5" aria-hidden="true" />
       </div>
     );
@@ -39,7 +39,7 @@ export function ThemeToggle() {
       type="button"
       aria-label="Toggle color theme"
       onClick={toggleTheme}
-      className="relative inline-flex h-10 w-12 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/80 text-sm font-medium shadow-sm transition hover:shadow-glow dark:border-white/10 dark:bg-slate-900/60"
+      className="relative inline-flex h-10 w-12 items-center justify-center overflow-hidden rounded-full border border-orange-200/20 bg-orange-50/80 text-sm font-medium shadow-sm transition hover:shadow-lg dark:border-orange-800/20 dark:bg-orange-950/60"
       animate={theme}
       variants={buttonVariants}
       whileTap={{ scale: 0.92 }}

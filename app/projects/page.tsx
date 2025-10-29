@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { ProjectsGrid, type Project } from "@/components/projects-grid";
+import { ProjectsGrid } from "@/components/projects-grid";
+import { projects, getProjectsContent } from "@/lib/content";
+import { Project } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Projects — Minjoon Eom",
@@ -8,22 +10,19 @@ export const metadata: Metadata = {
 };
 
 export default async function ProjectsPage() {
-  const { default: projects } = (await import("@/data/projects.json")) as {
-    default: Project[];
-  };
+  const projectsContent = getProjectsContent();
 
   return (
     <div className="space-y-10">
       <header className="space-y-4">
-        <span className="inline-flex items-center rounded-full border border-accent-teal/40 bg-accent-teal/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-accent-teal dark:border-accent-indigo/40 dark:bg-accent-indigo/15 dark:text-accent-lavender">
-          Projects
+        <span className="inline-flex items-center rounded-full border border-orange-300/40 bg-orange-100/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-orange-700 dark:border-orange-600/40 dark:bg-orange-900/30 dark:text-orange-300">
+          {projectsContent.badge}
         </span>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          A filler playground of shipped work and speculative builds.
+          {projectsContent.pageTitle}
         </h1>
         <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Explore case studies spanning interface craft, infrastructure
-          automation, and AI prototypes designed to unlock sharper workflows.
+          {projectsContent.pageDescription}
         </p>
       </header>
 

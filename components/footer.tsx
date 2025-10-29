@@ -1,30 +1,35 @@
+import { getSiteInfo, getContactContent } from "@/lib/content";
+
 export function Footer() {
+  const siteInfo = getSiteInfo();
+  const contactContent = getContactContent();
+
   return (
-    <footer className="border-t border-border bg-white/70 backdrop-blur dark:bg-slate-950/60">
+    <footer className="border-t border-orange-200 bg-orange-50/70 backdrop-blur dark:bg-orange-950/60">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 px-6 py-6 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} Minjoon Eom. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} {siteInfo.name}. All rights reserved.</p>
         <div className="flex gap-4">
           <a
-            href="mailto:minjoon@example.com"
-            className="transition hover:text-accent-teal"
+            href={contactContent.sidebar.links.email.href}
+            className="transition hover:text-orange-600"
           >
-            Email
+            {contactContent.sidebar.links.email.text}
           </a>
           <a
-            href="https://www.linkedin.com"
+            href={contactContent.sidebar.links.linkedin.href}
             target="_blank"
             rel="noreferrer"
-            className="transition hover:text-accent-indigo"
+            className="transition hover:text-orange-600"
           >
-            LinkedIn
+            {contactContent.sidebar.links.linkedin.text}
           </a>
           <a
-            href="https://github.com/JoonEom"
+            href={contactContent.sidebar.links.github.href}
             target="_blank"
             rel="noreferrer"
-            className="transition hover:text-accent-lavender"
+            className="transition hover:text-orange-600"
           >
-            GitHub
+            {contactContent.sidebar.links.github.text}
           </a>
         </div>
       </div>

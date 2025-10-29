@@ -1,31 +1,30 @@
 import type { Metadata } from "next";
 import {
   ExperienceTimeline,
-  type ExperienceEntry,
 } from "@/components/experience-timeline";
+import { experience, getExperienceContent } from "@/lib/content";
+import { ExperienceEntry } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Experience — Minjoon Eom",
   description:
-    "Browse Minjoon Eom's experience timeline spanning full stack engineering and AI research work.",
+    "Browse Minjoon Eom's experience timeline",
 };
 
 export default async function ExperiencePage() {
-  const { default: experience } = (await import("@/data/experience.json")) as {
-    default: ExperienceEntry[];
-  };
+  const experienceContent = getExperienceContent();
 
   return (
     <div className="space-y-10">
       <header className="space-y-4">
-        <span className="inline-flex items-center rounded-full border border-accent-teal/40 bg-accent-teal/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-accent-teal dark:border-accent-indigo/40 dark:bg-accent-indigo/15 dark:text-accent-lavender">
-          Experience
+        <span className="inline-flex items-center rounded-full border border-orange-300/40 bg-orange-100/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-orange-700 dark:border-orange-600/40 dark:bg-orange-900/30 dark:text-orange-300">
+          {experienceContent.badge}
         </span>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Building systems that connect people and data.
+          {experienceContent.pageTitle}
         </h1>
         <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          A timeline of my professional experience spanning software engineering, AI research, and full-stack development at the University of Washington and beyond.
+          {experienceContent.pageDescription}
         </p>
       </header>
 

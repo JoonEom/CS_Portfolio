@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Atom, BookOpen, Brain, Compass, Cpu, Microscope } from "lucide-react";
+import { getAboutContent } from "@/lib/content";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 32 },
@@ -22,48 +23,25 @@ const itemVariants = {
   },
 };
 
-const interests = [
-  {
-    label: "AI Robotics",
-    description: "Computer vision and teleoperation systems",
-    icon: Brain,
-  },
-  {
-    label: "Distributed Systems",
-    description: "Scalable cloud architectures",
-    icon: Cpu,
-  },
-  {
-    label: "Human-Computer Interaction",
-    description: "Intuitive user interfaces",
-    icon: BookOpen,
-  },
-  {
-    label: "Full-Stack Development",
-    description: "End-to-end web applications",
-    icon: Atom,
-  },
-  {
-    label: "Machine Learning",
-    description: "Deep learning and neural networks",
-    icon: Compass,
-  },
-  {
-    label: "Research",
-    description: "Academic and industry collaboration",
-    icon: Microscope,
-  },
-];
-
+const iconMap = {
+  Brain,
+  Cpu,
+  BookOpen,
+  Atom,
+  Compass,
+  Microscope,
+};
 
 export default function AboutPage() {
+  const aboutContent = getAboutContent();
+  
   return (
     <div className="space-y-16">
       <motion.section
         variants={sectionVariants}
         initial="hidden"
         animate="visible"
-        className="grid gap-10 rounded-3xl border border-border bg-white/80 p-10 shadow-lg backdrop-blur dark:bg-slate-950/70 md:grid-cols-[1fr_1.2fr]"
+        className="grid gap-10 rounded-3xl border border-orange-200 bg-orange-50/80 p-10 shadow-lg backdrop-blur dark:bg-orange-950/70 md:grid-cols-[1fr_1.2fr]"
       >
         <motion.div
           variants={itemVariants}
@@ -71,41 +49,41 @@ export default function AboutPage() {
           animate="visible"
           className="flex flex-col items-center gap-6 text-center md:items-start md:text-left"
         >
-          <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-accent-indigo/50 shadow-xl">
+          <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-orange-400/50 shadow-xl">
             <Image
-              src="/profile.svg"
-              alt="Portrait of Minjoon Eom"
+              src="/images/profile3.jpeg"
+              alt={`Portrait of ${aboutContent.name}`}
               fill
               sizes="160px"
-              className="object-cover"
+              className="object-cover object-center scale-150"
               priority
             />
           </div>
           <div className="space-y-4">
             <h1 className="text-3xl font-semibold text-foreground sm:text-4xl">
-              Minjoon Eom
+              {aboutContent.name}
             </h1>
             <p className="text-base leading-relaxed text-muted-foreground">
-              I'm Minjoon Eom, a Computer Science student at the University of Washington (Class of 2027) passionate about full-stack development, AI research, and building systems that connect people and data.
+              {aboutContent.bio}
             </p>
             <ul className="grid gap-2 text-sm text-muted-foreground/80">
               <li>
                 <span className="font-semibold text-foreground">
                   Education:
                 </span>
-                UW Computer Science B.S. (3.7 GPA, Seattle WA)
+                {aboutContent.education}
               </li>
               <li>
                 <span className="font-semibold text-foreground">
                   Interests:
                 </span>
-                AI robotics, distributed systems, human-computer interaction
+                {aboutContent.interests}
               </li>
               <li>
                 <span className="font-semibold text-foreground">
                   Skills:
                 </span>
-                Python, Java, TypeScript, SQL, React, Next.js, Docker, AWS, PyTorch
+                {aboutContent.skills}
               </li>
             </ul>
           </div>
@@ -116,20 +94,25 @@ export default function AboutPage() {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.1 }}
-          className="space-y-6 rounded-2xl border border-dashed border-accent-teal/40 bg-accent-teal/5 p-8 shadow-inner dark:border-accent-indigo/40 dark:bg-accent-indigo/10"
+          className="space-y-6 rounded-2xl border border-dashed border-orange-300/40 bg-orange-100/20 p-8 shadow-inner dark:border-orange-600/40 dark:bg-orange-900/20"
         >
-          <h2 className="text-xl font-semibold text-foreground">Core themes</h2>
+          <h2 className="text-xl font-semibold text-foreground">{aboutContent.coreThemes.title}</h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            I build layered systems that translate complex research into
-            intuitive experiences. From modeling uncertainty for climate
-            initiatives to crafting narrative analytics for policy teams, I
-            focus on turning insight into action.
+            {aboutContent.coreThemes.description1}
           </p>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            When I&apos;m not prototyping new interfaces, you can find me
-            mentoring cross-disciplinary teams, writing about humane technology,
-            or mapping the next research residency.
+            {aboutContent.coreThemes.description2}
           </p>
+          {aboutContent.coreThemes.description3 && (
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {aboutContent.coreThemes.description3}
+            </p>
+          )}
+          {aboutContent.coreThemes.description4 && (
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {aboutContent.coreThemes.description4}
+            </p>
+          )}
         </motion.div>
       </motion.section>
 
@@ -139,17 +122,17 @@ export default function AboutPage() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="rounded-3xl border border-border bg-gradient-to-br from-white via-accent-lavender/10 to-accent-teal/10 p-10 shadow-lg backdrop-blur dark:from-slate-950 dark:via-slate-950/70 dark:to-slate-900"
+        className="rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-orange-100/20 to-orange-200/30 p-10 shadow-lg backdrop-blur dark:from-orange-950 dark:via-orange-900/70 dark:to-orange-950"
       >
         <motion.h2
           variants={itemVariants}
           className="text-2xl font-semibold text-foreground"
         >
-          Interests & Skills
+          {aboutContent.interestsSection.title}
         </motion.h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {interests.map((interest, index) => {
-            const Icon = interest.icon;
+          {aboutContent.interestsSection.items.map((interest, index) => {
+            const Icon = iconMap[interest.icon as keyof typeof iconMap];
             return (
               <motion.div
                 key={interest.label}
@@ -158,9 +141,9 @@ export default function AboutPage() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.05, duration: 0.4 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="group rounded-2xl border border-white/50 bg-white/70 p-6 shadow-md transition dark:border-white/10 dark:bg-slate-950/70"
+                className="group rounded-2xl border border-orange-200/50 bg-orange-50/70 p-6 shadow-md transition dark:border-orange-800/50 dark:bg-orange-950/70"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-indigo/10 text-accent-indigo transition group-hover:bg-accent-indigo group-hover:text-white">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600 transition group-hover:bg-orange-600 group-hover:text-white">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-foreground">

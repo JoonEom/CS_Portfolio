@@ -3,19 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
-type ProjectLinks = {
-  github?: string;
-  demo?: string;
-};
-
-export type Project = {
-  title: string;
-  image: string;
-  description: string;
-  tags: string[];
-  links: ProjectLinks;
-};
+import { Project, ProjectLinks } from "@/types/content";
 
 type ProjectsGridProps = {
   projects: Project[];
@@ -51,7 +39,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
           key={project.title}
           variants={cardVariants}
           whileHover={{ y: -8 }}
-          className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-white/80 shadow-sm transition hover:shadow-lg dark:bg-slate-950/70"
+          className="group flex flex-col overflow-hidden rounded-3xl border border-orange-200 bg-orange-50/80 shadow-sm transition hover:shadow-lg dark:bg-orange-950/70"
         >
           <div className="relative h-56 w-full overflow-hidden">
             <motion.div whileHover={{ scale: 1.05 }} className="h-full w-full">
@@ -78,33 +66,27 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
               {project.tags.map((tag) => (
                 <span
                   key={`${project.title}-${tag}`}
-                  className="rounded-full border border-accent-indigo/40 bg-accent-lavender/20 px-3 py-1 text-xs font-semibold text-accent-indigo dark:border-accent-indigo/30 dark:bg-accent-indigo/20 dark:text-accent-lavender"
+                  className="rounded-full border border-orange-300 bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 dark:border-orange-600 dark:bg-orange-900/30 dark:text-orange-300"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-            <div className="mt-auto flex gap-3">
+            <div className="mt-auto">
               {project.links.github ? (
                 <Link
                   href={project.links.github}
                   target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex flex-1 items-center justify-center rounded-full border border-accent-teal/50 px-4 py-2 text-sm font-semibold text-accent-teal transition hover:bg-accent-teal/10 dark:border-accent-indigo/50 dark:text-accent-lavender dark:hover:bg-accent-indigo/10"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-orange-300 px-4 py-2 text-sm font-semibold text-orange-600 transition hover:bg-orange-50 dark:border-orange-600 dark:text-orange-400 dark:hover:bg-orange-900/20"
                 >
-                  GitHub
+                  {project.links.github.includes('youtube.com') || project.links.github.includes('youtu.be') ? 'Watch Demo' : 'GitHub'}
                 </Link>
-              ) : null}
-              {project.links.demo ? (
-                <Link
-                  href={project.links.demo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex flex-1 items-center justify-center rounded-full bg-accent-indigo px-4 py-2 text-sm font-semibold text-white shadow-glow transition hover:bg-accent-indigo/90"
-                >
-                  Live Demo
-                </Link>
-              ) : null}
+              ) : (
+                <div className="inline-flex w-full items-center justify-center rounded-full border border-muted/30 px-4 py-2 text-sm font-medium text-muted-foreground">
+                  GitHub Coming Soon
+                </div>
+              )}
             </div>
           </div>
         </motion.article>

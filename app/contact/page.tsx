@@ -11,6 +11,7 @@ import {
   Mail,
   Upload,
 } from "lucide-react";
+import { getContactContent } from "@/lib/content";
 
 type FormState = {
   name: string;
@@ -30,6 +31,7 @@ const initialForm: FormState = {
 };
 
 export default function ContactPage() {
+  const contactContent = getContactContent();
   const [form, setForm] = useState<FormState>(initialForm);
   const [toast, setToast] = useState<ToastState | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -85,25 +87,24 @@ export default function ContactPage() {
   return (
     <div className="space-y-10">
       <header className="space-y-4">
-        <span className="inline-flex items-center gap-2 rounded-full border border-accent-teal/40 bg-accent-teal/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-accent-teal dark:border-accent-indigo/40 dark:bg-accent-indigo/15 dark:text-accent-lavender">
+        <span className="inline-flex items-center gap-2 rounded-full border border-orange-300/40 bg-orange-100/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-orange-700 dark:border-orange-600/40 dark:bg-orange-900/30 dark:text-orange-300">
           <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-          Contact
+          {contactContent.badge}
         </span>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Let&apos;s collaborate on the next idea.
+          {contactContent.pageTitle}
         </h1>
         <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Share a quick note about what you&apos;re building or researching.
-          I&apos;ll respond within a few days with next steps and availability.
+          {contactContent.pageDescription}
         </p>
       </header>
 
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
-        <section className="rounded-3xl border border-border bg-white/80 p-8 shadow-sm backdrop-blur dark:bg-slate-950/70">
+        <section className="rounded-3xl border border-orange-200 bg-orange-50/80 p-8 shadow-sm backdrop-blur dark:bg-orange-950/70">
           <form className="space-y-6" onSubmit={handleSubmit} noValidate>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="flex flex-col gap-2 text-sm font-semibold text-foreground">
-                Name
+                {contactContent.form.nameLabel}
                 <input
                   type="text"
                   name="name"
@@ -111,11 +112,11 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   autoComplete="name"
-                  className="rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-foreground outline-none transition focus:border-accent-indigo focus:ring-2 focus:ring-accent-indigo/40 dark:bg-slate-950/70"
+                  className="rounded-2xl border border-orange-200 bg-orange-50/90 px-4 py-3 text-sm text-foreground outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/40 dark:bg-orange-950/70"
                 />
               </label>
               <label className="flex flex-col gap-2 text-sm font-semibold text-foreground">
-                Email
+                {contactContent.form.emailLabel}
                 <input
                   type="email"
                   name="email"
@@ -123,19 +124,19 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   autoComplete="email"
-                  className="rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-foreground outline-none transition focus:border-accent-indigo focus:ring-2 focus:ring-accent-indigo/40 dark:bg-slate-950/70"
+                  className="rounded-2xl border border-orange-200 bg-orange-50/90 px-4 py-3 text-sm text-foreground outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/40 dark:bg-orange-950/70"
                 />
               </label>
             </div>
             <label className="flex flex-col gap-2 text-sm font-semibold text-foreground">
-              How can I help?
+              {contactContent.form.messageLabel}
               <textarea
                 name="message"
                 value={form.message}
                 onChange={handleChange}
                 required
                 rows={5}
-                className="resize-y rounded-2xl border border-border bg-white/90 px-4 py-3 text-sm text-foreground outline-none transition focus:border-accent-indigo focus:ring-2 focus:ring-accent-indigo/40 dark:bg-slate-950/70"
+                className="resize-y rounded-2xl border border-orange-200 bg-orange-50/90 px-4 py-3 text-sm text-foreground outline-none transition focus:border-orange-500 focus:ring-2 focus:ring-orange-500/40 dark:bg-orange-950/70"
               />
             </label>
 
@@ -143,9 +144,9 @@ export default function ContactPage() {
               type="submit"
               whileTap={{ scale: 0.96 }}
               disabled={isPending}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-indigo px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-accent-indigo/90 disabled:cursor-not-allowed disabled:opacity-70"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange-700 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {isPending ? "Sending…" : "Send message"}
+              {isPending ? contactContent.form.sendingText : contactContent.form.submitText}
             </motion.button>
 
             <AnimatePresence>
@@ -157,7 +158,7 @@ export default function ContactPage() {
                   transition={{ duration: 0.25 }}
                   className={`flex items-center gap-3 rounded-2xl border px-4 py-3 text-sm ${
                     toast.type === "success"
-                      ? "border-accent-teal/40 bg-accent-teal/10 text-accent-teal dark:border-accent-indigo/40 dark:bg-accent-indigo/20 dark:text-accent-lavender"
+                      ? "border-orange-400/40 bg-orange-100/20 text-orange-700 dark:border-orange-500/40 dark:bg-orange-900/30 dark:text-orange-300"
                       : "border-red-400/60 bg-red-100/60 text-red-700 dark:border-red-400/40 dark:bg-red-500/20 dark:text-red-100"
                   }`}
                   role="status"
@@ -175,43 +176,48 @@ export default function ContactPage() {
           </form>
         </section>
 
-        <aside className="space-y-4 rounded-3xl border border-dashed border-accent-teal/50 bg-accent-teal/10 p-6 text-sm leading-relaxed text-muted-foreground dark:border-accent-indigo/50 dark:bg-accent-indigo/10">
+        <aside className="space-y-4 rounded-3xl border border-dashed border-orange-300/50 bg-orange-100/20 p-6 text-sm leading-relaxed text-muted-foreground dark:border-orange-600/50 dark:bg-orange-900/20">
           <p>
-            Prefer a direct line? Choose a channel below—each opens in a new tab
-            so you can continue browsing here.
+            {contactContent.sidebar.title}
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="https://www.linkedin.com"
+              href={contactContent.sidebar.links.email.href}
+              className="inline-flex items-center gap-2 rounded-full border border-orange-400/60 px-4 py-2 text-sm font-semibold text-orange-600 transition hover:bg-orange-100/20 dark:text-orange-400 dark:hover:bg-orange-900/30"
+            >
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              {contactContent.sidebar.links.email.text}
+            </Link>
+            <Link
+              href={contactContent.sidebar.links.linkedin.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-accent-indigo/60 px-4 py-2 text-sm font-semibold text-accent-indigo transition hover:bg-accent-indigo/10 dark:text-accent-lavender dark:hover:bg-accent-indigo/20"
+              className="inline-flex items-center gap-2 rounded-full border border-orange-400/60 px-4 py-2 text-sm font-semibold text-orange-600 transition hover:bg-orange-100/20 dark:text-orange-400 dark:hover:bg-orange-900/30"
             >
               <Linkedin className="h-4 w-4" aria-hidden="true" />
-              LinkedIn
+              {contactContent.sidebar.links.linkedin.text}
             </Link>
             <Link
-              href="https://github.com/JoonEom"
+              href={contactContent.sidebar.links.github.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-accent-indigo/60 px-4 py-2 text-sm font-semibold text-accent-indigo transition hover:bg-accent-indigo/10 dark:text-accent-lavender dark:hover:bg-accent-indigo/20"
+              className="inline-flex items-center gap-2 rounded-full border border-orange-400/60 px-4 py-2 text-sm font-semibold text-orange-600 transition hover:bg-orange-100/20 dark:text-orange-400 dark:hover:bg-orange-900/30"
             >
               <Github className="h-4 w-4" aria-hidden="true" />
-              GitHub
+              {contactContent.sidebar.links.github.text}
             </Link>
             <Link
-              href="/resume.pdf"
+              href={contactContent.sidebar.links.resume.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-accent-indigo/60 px-4 py-2 text-sm font-semibold text-accent-indigo transition hover:bg-accent-indigo/10 dark:text-accent-lavender dark:hover:bg-accent-indigo/20"
+              className="inline-flex items-center gap-2 rounded-full border border-orange-400/60 px-4 py-2 text-sm font-semibold text-orange-600 transition hover:bg-orange-100/20 dark:text-orange-400 dark:hover:bg-orange-900/30"
             >
               <Upload className="h-4 w-4" aria-hidden="true" />
-              Résumé PDF
+              {contactContent.sidebar.links.resume.text}
             </Link>
           </div>
           <p className="text-xs text-muted-foreground">
-            Note: The form is routed through a lightweight Next.js API endpoint.
-            Feel free to wire it up to your preferred email or Formspree setup.
+            {contactContent.sidebar.note}
           </p>
         </aside>
       </div>

@@ -21,19 +21,9 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 const STORAGE_KEY = "portfolio-theme";
 
-function getSystemPreference(): Theme {
-  if (typeof window === "undefined") {
-    return "light";
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") {
-    return "light";
+    return "dark";
   }
 
   const stored = window.localStorage.getItem(STORAGE_KEY) as Theme | null;
@@ -41,11 +31,12 @@ function getInitialTheme(): Theme {
     return stored;
   }
 
-  return getSystemPreference();
+  // Always default to dark mode instead of system preference
+  return "dark";
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light"); // Default to light for SSR
+  const [theme, setTheme] = useState<Theme>("dark"); // Default to dark for SSR
   const [mounted, setMounted] = useState(false);
 
   // Initialize theme after hydration
@@ -63,24 +54,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     root.dataset.theme = theme;
     window.localStorage.setItem(STORAGE_KEY, theme);
   }, [theme, mounted]);
-
-  useEffect(() => {
-    if (!mounted) return;
-    
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const listener = () => {
-      setTheme((current) => {
-        const stored = window.localStorage.getItem(STORAGE_KEY);
-        if (stored === "light" || stored === "dark") {
-          return current;
-        }
-        return media.matches ? "dark" : "light";
-      });
-    };
-
-    media.addEventListener("change", listener);
-    return () => media.removeEventListener("change", listener);
-  }, [mounted]);
 
   const toggleTheme = useCallback(() => {
     setTheme((current) => (current === "dark" ? "light" : "dark"));

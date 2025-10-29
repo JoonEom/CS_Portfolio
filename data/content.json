@@ -1,0 +1,125 @@
+{
+  "site": {
+    "name": "Minjoon Eom",
+    "tagline": "I love building",
+    "description": "3rd year cs student & hooper looking for internship opportunities"
+  },
+  "hero": {
+    "badge": {
+      "text": "Developer by day, hooper by night",
+      "icon": "CircleDot"
+    },
+    "title": "Minjoon Eom — 3rd year cs student @ UW looking for internship opportunities",
+    "subtitle": "CS student @ UW • Full-stack developer • Basketball enthusiast",
+    "buttons": {
+      "primary": {
+        "text": "Check My Game",
+        "href": "/projects",
+        "icon": "Target"
+      },
+      "secondary": {
+        "text": "Let's Team Up",
+        "href": "/contact",
+        "icon": "Trophy"
+      }
+    },
+    "stats": {
+      "gpa": "3.7",
+      "basketball": "20,000+",
+      "graduation": "Spring 2027"
+    }
+  },
+  "about": {
+    "name": "Minjoon Eom",
+    "bio": "I'm Minjoon Eom, a Computer Science student at the University of Washington (Class of 2027) passionate about full-stack development, AI, and building systems that better the world.",
+    "education": "UW Computer Science B.S. (3.7 GPA, Seattle WA)",
+    "interests": "Full Stack Development, Machine Learning, Human-Computer Interaction, Basketball",
+    "skills": "Python, Java, JavaScript, TypeScript, SQL, React, Next.js, Docker, AWS",
+    "coreThemes": {
+      "title": "Besides Coding",
+      "description1": "I try to play basketball at least 4 times a week, and whenever I'm not playing, I'm watching basketball games or reading about the latest news in the space.",
+      "description2": "I work at Din Tai Fung as a greeter and my favorite food there is the spicy wontons.",
+      "description3": "I am a member of the Lambda Phi Epsilon fraternity where I served as the rush chair.",
+      "description4": "I love being outside, and one of the main things I do is going on hikes, especially since I live in Washington State"
+    },
+    "interestsSection": {
+      "title": "Interests & Skills",
+      "items": [
+        {
+          "label": "AI Robotics",
+          "description": "Computer vision and teleoperation systems",
+          "icon": "Brain"
+        },
+        {
+          "label": "Distributed Systems",
+          "description": "Scalable cloud architectures",
+          "icon": "Cpu"
+        },
+        {
+          "label": "Human-Computer Interaction",
+          "description": "Intuitive user interfaces",
+          "icon": "BookOpen"
+        },
+        {
+          "label": "Full-Stack Development",
+          "description": "End-to-end web applications",
+          "icon": "Atom"
+        },
+        {
+          "label": "Machine Learning",
+          "description": "Deep learning and neural networks",
+          "icon": "Compass"
+        },
+        {
+          "label": "Research",
+          "description": "Academic and industry collaboration",
+          "icon": "Microscope"
+        }
+      ]
+    }
+  },
+  "experience": {
+    "pageTitle": "My Journey",
+    "pageDescription": "The plays that got me here",
+    "badge": "Experience"
+  },
+  "projects": {
+    "pageTitle": "My Game Highlights",
+    "pageDescription": "Projects I've built because they were interesting and fun",
+    "badge": "Projects"
+  },
+  "contact": {
+    "pageTitle": "Let's Team Up",
+    "pageDescription": "Ask me anything. I'll respond within a day.",
+    "badge": "Contact",
+    "form": {
+      "nameLabel": "Name",
+      "emailLabel": "Email",
+      "messageLabel": "How can I help?",
+      "submitText": "Send message",
+      "sendingText": "Sending…"
+    },
+    "sidebar": {
+      "title": "Prefer a direct line? Choose a channel below—each opens in a new tab so you can continue browsing here.",
+      "links": {
+        "email": {
+          "text": "Email",
+          "href": "mailto:eomminjoon81@gmail.com"
+        },
+        "linkedin": {
+          "text": "LinkedIn",
+          "href": "https://www.linkedin.com/in/minjoon-eom/"
+        },
+        "github": {
+          "text": "GitHub",
+          "href": "https://github.com/JoonEom"
+        },
+        "resume": {
+          "text": "Résumé PDF",
+          "href": "/minjoon_eom.pdf"
+        }
+      },
+      "note": ""
+    }
+  }
+}

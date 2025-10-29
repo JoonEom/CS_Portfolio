@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { RouteTransition } from "@/components/route-transition";
-import { AICornerWidget } from "@/components/ai-corner";
+import { getSiteInfo } from "@/lib/content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,27 +18,25 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://cs-portfolio.example.com";
+const siteInfo = getSiteInfo();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Minjoon Eom — Full stack developer and AI researcher",
-  description:
-    "The evolving portfolio of Minjoon Eom, spotlighting full stack work, AI research, and selected projects.",
+  title: `${siteInfo.name} — ${siteInfo.tagline}`,
+  description: siteInfo.description,
   openGraph: {
-    title: "Minjoon Eom — Full stack developer and AI researcher",
-    description:
-      "Explore Minjoon Eom's full stack builds, AI research notes, and experiments.",
+    title: `${siteInfo.name} — ${siteInfo.tagline}`,
+    description: siteInfo.description,
     url: siteUrl,
-    siteName: "Minjoon Eom Portfolio",
+    siteName: `${siteInfo.name} Portfolio`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Minjoon Eom — Full stack developer and AI researcher",
-    description:
-      "Showcasing engineering stories, AI explorations, and projects by Minjoon Eom.",
+    title: `${siteInfo.name} — ${siteInfo.tagline}`,
+    description: siteInfo.description,
   },
-  authors: [{ name: "Minjoon Eom" }],
+  authors: [{ name: siteInfo.name }],
 };
 
 export default function RootLayout({
@@ -54,13 +52,12 @@ export default function RootLayout({
     >
       <body className="antialiased bg-background text-foreground">
         <ThemeProvider>
-          <div className="flex min-h-screen flex-col bg-[#f8f9ff] dark:bg-slate-950">
+          <div className="flex min-h-screen flex-col bg-orange-50 dark:bg-orange-950">
             <Navbar />
             <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
               <RouteTransition>{children}</RouteTransition>
             </main>
             <Footer />
-            <AICornerWidget />
           </div>
         </ThemeProvider>
       </body>

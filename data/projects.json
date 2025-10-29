@@ -1,32 +1,101 @@
 [
   {
-    "title": "Neural Trailblazer",
-    "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80",
-    "description": "A filler experimental analytics suite that stitches telemetry with large language models to surface narratives for product teams in real time.",
-    "tags": ["Next.js", "TypeScript", "OpenAI", "Edge Functions"],
+    "title": "Robotic Teleoperation Research",
+    "image": "/images/personal-robotics-lab.jpg",
+    "description": "Conducted research on Apple Vision Pro–based teleoperation, developing a Python + Docker pipeline for real-time robot control and presenting results that improved joint alignment by 88.6% and reduced jitter by 30%.",
+    "tags": ["Python", "Docker", "Apple Vision Pro", "MuJoCo", "CNN", "Computer Vision"],
     "links": {
-      "github": "https://github.com/JoonEom/neural-trailblazer",
-      "demo": "https://neural-trailblazer.example.com"
+      "github": "https://github.com/helen9975/RobotOlympics"
     }
   },
   {
-    "title": "Atlas Sketchpad",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
-    "description": "A filler collaborative whiteboard for distributed teams with real-time cursors, AI-assisted summaries, and extensible plugin architecture.",
-    "tags": ["React", "WebRTC", "Tailwind CSS", "Redis"],
+    "title": "Call Captioner",
+    "image": "/images/call-captioner.png",
+    "description": "Developed a real-time AI captioning system for a company project using OpenAI and FastAPI, improving contextual accuracy by 40% and cutting latency by 35%.",
+    "tags": ["Python", "React", "Tailwind", "FastAPI", "WebSocket", "OpenAI"],
     "links": {
-      "github": "https://github.com/JoonEom/atlas-sketchpad",
-      "demo": "https://atlas-sketchpad.example.com"
+      "github": "https://github.com/JoonEom/Call-Captioner"
     }
   },
   {
-    "title": "Pulse Orchestrator",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
-    "description": "A filler operations dashboard that wrangles event streams into proactive alerts, marrying observability data with natural language playbooks.",
-    "tags": ["Go", "Kafka", "Grafana", "Terraform"],
+    "title": "Motion",
+    "image": "/images/motion.png",
+    "description": "Creating a full-stack event app supported by Husky Coding Club enabling map-based event discovery and drawing a 100+ user waitlist.",
+    "tags": ["MongoDB", "Express.js", "React.js", "Node.js", "Google Maps API"],
     "links": {
-      "github": "https://github.com/JoonEom/pulse-orchestrator",
-      "demo": "https://pulse-orchestrator.example.com"
+      "github": ""
+    }
+  },
+  {
+    "title": "FlightDB",
+    "image": "/images/flightdb.png",
+    "description": "Built a PostgreSQL-backed flight management system in Java with secure authentication, transaction-safe bookings, and flight search functionality.",
+    "tags": ["Java", "JDBC", "PostgreSQL", "CLI"],
+    "links": {
+      "github": null
+    }
+  },
+  {
+    "title": "Campus Paths",
+    "image": "/images/campus-paths.png",
+    "description": "Built a JavaFX campus map that visualizes shortest walking routes using a custom weighted graph and Dijkstra’s algorithm.",
+    "tags": ["Java", "JavaFX", "Dijkstra's Algorithm", "JUnit"],
+    "links": {
+      "github": ""
+    }
+  },
+  {
+    "title": "Wacky Wheels",
+    "image": "/images/wacky-wheels.png",
+    "description": "Built a 3D racing game in Unity with custom terrains, checkpoints, and a ghost car system, reducing in-game bugs by 90%.",
+    "tags": ["Unity", "C#", "3D Game Development"],
+    "links": {
+      "github": "https://youtu.be/TNGanC0pTW8"
+    }
+  },
+  {
+    "title": "Pokemon Legendary Predictor",
+    "image": "/images/pokemon-predictor.png",
+    "description": "Built predictive models and visualizations in Python using Kaggle datasets to analyze Pokémon ratings and airline passenger satisfaction.",
+    "tags": ["Python", "Machine Learning", "Pandas", "Neural Networks"],
+    "links": {
+      "github": "https://github.com/JoonEom/legendary-pokemon-predictor"
+    }
+  },
+  {
+    "title": "Artificial Caffeine",
+    "image": "/images/artificial-caffeine.png",
+    "description": "Built a real-time facial detection system in Python using OpenCV and MediaPipe that triggered actions based on gestures and eye-closure alerts.",
+    "tags": ["Python", "MediaPipe", "OpenCV", "Computer Vision"],
+    "links": {
+      "github": "https://github.com/JoonEom/ArtificialCaffeine"
+    }
+  },
+  {
+    "title": "Song Ranker",
+    "image": "/images/song-ranker.png",
+    "description": "Built a full-stack Node.js app integrating the Spotify API for automated playlist curation and real-time song tracking.",
+    "tags": ["HTML", "CSS", "Node.js", "Express.js", "Spotify API"],
+    "links": {
+      "github": "https://github.com/JoonEom/song-ranker"
+    }
+  },
+  {
+    "title": "Flyng",
+    "image": "/images/flyng.jpg",
+    "description": "Built a Google Cloud web app at DubHacks that connects travelers in airports based on shared flights, interests, and wait times.",
+    "tags": ["Google Cloud", "Cross-Platform", "Web Development", "Social Networking"],
+    "links": {
+      "github": "https://github.com/JoonEom/Dubhacks-23"
+    }
+  },
+  {
+    "title": "Hear Our Hands",
+    "image": "/images/hear-our-hands.png",
+    "description": "Hackathon project focused on accessibility and communication technology, developing innovative solutions for hearing-impaired individuals through hand gesture recognition and audio processing.",
+    "tags": ["Accessibility", "Computer Vision", "Hackathon", "Communication Technology"],
+    "links": {
+      "github": "https://youtu.be/drkDYO-lbvE?si=qF6ftvIIdLKi-ujM"
     }
   }
 ]
