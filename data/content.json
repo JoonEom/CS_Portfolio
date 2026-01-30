@@ -33,7 +33,7 @@
     "name": "Minjoon Eom",
     "bio": "I'm Minjoon Eom, a Computer Science student at the University of Washington (Class of 2027) passionate about full-stack development, AI, and building systems that better the world.",
     "education": "UW Computer Science B.S. (3.7 GPA, Seattle WA)",
-    "interests": "Full Stack Development, Machine Learning, Human-Computer Interaction, Basketball",
+    "interests": "Full Stack Development, Product Management, Human-Computer Interaction, Basketball",
     "skills": "Python, Java, JavaScript, TypeScript, SQL, React, Next.js, Docker, AWS",
     "coreThemes": {
       "title": "Besides Coding",
@@ -71,8 +71,8 @@
           "icon": "Compass"
         },
         {
-          "label": "Research",
-          "description": "Academic and industry collaboration",
+          "label": "Product Management",
+          "description": "Product management and strategy",
           "icon": "Microscope"
         }
       ]

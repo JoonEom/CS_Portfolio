@@ -21,7 +21,7 @@
     "link": "https://sac.cs.washington.edu/"
   },
   {
-    "role": "AI Robotics Researcher",
+    "role": "Software Engineer, AI Robotics Researcher",
     "company": "Personal Robotics Lab",
     "duration": "Dec 2024 – Jun 2025",
     "description": "Engineered a pipeline for Apple Vision Pro teleoperation using Python + Docker, achieving 88.6% joint alignment and 30% smoother motion. Conducted 100+ simulated trials with CNN-based pose estimation and presented results at the UW Allen School Research Showcase (300+ attendees).",
