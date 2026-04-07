@@ -78,7 +78,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
                   rel="noopener noreferrer"
                   className="inline-flex w-full items-center justify-center rounded-full border border-orange-300 px-4 py-2 text-sm font-semibold text-orange-600 transition hover:bg-orange-50 dark:border-orange-600 dark:text-orange-400 dark:hover:bg-orange-900/20"
                 >
-                  {project.links.github.includes('youtube.com') || project.links.github.includes('youtu.be') ? 'Watch Demo' : 'GitHub'}
+                  {project.links.github.includes('youtube.com') || project.links.github.includes('youtu.be') ? 'Watch Demo' : !project.links.github.includes('github') ? 'Live Website' : 'GitHub'}
                 </Link>
               ) : (
                 <div className="inline-flex w-full items-center justify-center rounded-full border border-muted/30 px-4 py-2 text-sm font-medium text-muted-foreground">

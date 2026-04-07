@@ -13,11 +13,32 @@
     "link": null
   },
   {
+    "role": "AR Software Engineer",
+    "company": "UW Reality Lab (Capstone)",
+    "duration": "Jan 2026 – Mar 2026",
+    "description": "Co-developed Blubble, an Apple Vision Pro assistant for neurodivergent users, integrating AVAudioEngine and Nvidia Sortformer for real-time speech diarization.",
+    "technologies": [
+      "Apple Vision Pro",
+      "AVAudioEngine",
+      "Nvidia Sortformer",
+      "CoreML",
+      "DistilBERT",
+      "GPT-4o-mini",
+      "RAG"
+    ],
+    "link": "https://courses.cs.washington.edu/courses/cse481v/26wi/demo-day/"
+  },
+  {
     "role": "External Relations Officer",
     "company": "Student Advisory Council",
     "duration": "Sep 2024 – Present",
     "description": "Led a comprehensive student-feedback initiative surveying 200+ students to improve program policies. Spearheaded a CS merchandise rebrand, coordinating with vendors and staff, boosting revenue by 30%.",
-    "technologies": ["Leadership", "Project Management", "Student Affairs", "Design"],
+    "technologies": [
+      "Leadership",
+      "Project Management",
+      "Student Affairs",
+      "Design"
+    ],
     "link": "https://sac.cs.washington.edu/"
   },
   {
@@ -25,7 +46,16 @@
     "company": "Personal Robotics Lab",
     "duration": "Dec 2024 – Jun 2025",
     "description": "Engineered a pipeline for Apple Vision Pro teleoperation using Python + Docker, achieving 88.6% joint alignment and 30% smoother motion. Conducted 100+ simulated trials with CNN-based pose estimation and presented results at the UW Allen School Research Showcase (300+ attendees).",
-    "technologies": ["Python", "Docker", "CNN", "PyTorch", "Computer Vision", "Apple Vision Pro", "MuJoCo", "Research"],
+    "technologies": [
+      "Python",
+      "Docker",
+      "CNN",
+      "PyTorch",
+      "Computer Vision",
+      "Apple Vision Pro",
+      "MuJoCo",
+      "Research"
+    ],
     "link": "https://personalrobotics.cs.washington.edu/"
   },
   {
@@ -33,7 +63,12 @@
     "company": "Sensors, Energy & Automation Laboratory (SEAL)",
     "duration": "Sep 2024 – Dec 2024",
     "description": "Developed automated solutions using Python + Google Apps Script to boost lab throughput by 20%. Automated data analysis pipelines to reduce manual processing.",
-    "technologies": ["Python", "Google Apps Script", "Data Analysis", "Automation"],
+    "technologies": [
+      "Python",
+      "Google Apps Script",
+      "Data Analysis",
+      "Automation"
+    ],
     "link": "https://www.uwseal.org/"
   },
   {
@@ -41,7 +76,15 @@
     "company": "The Blue Heron",
     "duration": "Jun 2024 – Sep 2024",
     "description": "Built and deployed a React website that boosted online orders by 20% and traffic by 10%. Collaborated directly with the CEO to iterate on UX and brand alignment.",
-    "technologies": ["React", "JavaScript", "Web Development", "UX Design", "Tailwind CSS", "HTML", "CSS"],
+    "technologies": [
+      "React",
+      "JavaScript",
+      "Web Development",
+      "UX Design",
+      "Tailwind CSS",
+      "HTML",
+      "CSS"
+    ],
     "link": "https://blueheronmagnolia.com/"
   },
   {
@@ -49,7 +92,15 @@
     "company": "University of Washington (AI4ALL)",
     "duration": "Jul 2022 – Aug 2022",
     "description": "Created data visualizations with Pandas to predict Pokémon ratings and airline satisfaction. Applied neural networks, decision trees, and clustering for predictive modeling. Collaborated on data collection and literature review for final project.",
-    "technologies": ["Python", "Pandas", "Neural Networks", "Machine Learning", "Data Visualization", "Data Collection", "Literature Review"],
+    "technologies": [
+      "Python",
+      "Pandas",
+      "Neural Networks",
+      "Machine Learning",
+      "Data Visualization",
+      "Data Collection",
+      "Literature Review"
+    ],
     "link": "https://ai-4-all.org/"
   }
 ]
