@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+const resend = process.env.RESEND_API_KEY
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null;
 
 type ContactPayload = {
   name?: string;
@@ -26,7 +28,8 @@ export async function POST(request: Request) {
       console.log("Resend API key not configured, simulating email send");
       return NextResponse.json({
         status: "ok",
-        message: "Thanks for reaching out! I just received your note and will respond soon.",
+        message:
+          "Thanks for reaching out! I just received your note and will respond soon.",
       });
     }
 
@@ -83,7 +86,8 @@ This message was sent from your portfolio contact form at ${new Date().toLocaleS
 
     return NextResponse.json({
       status: "ok",
-      message: "Thanks for reaching out! I just received your note and will respond soon.",
+      message:
+        "Thanks for reaching out! I just received your note and will respond soon.",
     });
   } catch (error) {
     console.error("Contact form error:", error);

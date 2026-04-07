@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import {
-  ExperienceTimeline,
-} from "@/components/experience-timeline";
+import { ExperienceTimeline } from "@/components/experience-timeline";
 import { experience, getExperienceContent } from "@/lib/content";
 import { ExperienceEntry } from "@/types/content";
 
 export const metadata: Metadata = {
   title: "Experience — Minjoon Eom",
-  description:
-    "Browse Minjoon Eom's experience timeline",
+  description: "Browse Minjoon Eom's experience timeline",
 };
 
 export default async function ExperiencePage() {

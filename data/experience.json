@@ -4,12 +4,7 @@
     "company": "University of Washington CBE",
     "duration": "Jun 2025 – Present",
     "description": "Built and launched a Python + SQL dashboard to simplify UW's ticketing system for staff, adopted across the IT team to centralize requests and streamline workflows.",
-    "technologies": [
-      "Python",
-      "SQL",
-      "Dashboard Development",
-      "IT Systems"
-    ],
+    "technologies": ["Python", "SQL", "Dashboard Development", "IT Systems"],
     "link": null
   },
   {

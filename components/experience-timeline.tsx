@@ -22,7 +22,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-
 export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
   return (
     <div className="space-y-6 sm:space-y-8">
@@ -40,7 +39,7 @@ export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
           {index > 0 && (
             <div className="mb-6 h-px bg-gradient-to-r from-transparent via-orange-400/20 to-transparent sm:mb-8" />
           )}
-          
+
           <div className="relative overflow-hidden rounded-xl border border-orange-200 bg-orange-50/80 p-4 shadow-sm backdrop-blur dark:bg-orange-950/70 sm:rounded-2xl sm:p-6 lg:p-8">
             <div className="relative z-10">
               {/* Header */}

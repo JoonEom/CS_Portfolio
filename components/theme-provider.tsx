@@ -41,13 +41,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   // Initialize theme after hydration
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(getInitialTheme());
     setMounted(true);
   }, []);
 
   useEffect(() => {
     if (!mounted) return;
-    
+
     const root = document.documentElement;
     root.classList.remove(theme === "dark" ? "light" : "dark");
     root.classList.add(theme);

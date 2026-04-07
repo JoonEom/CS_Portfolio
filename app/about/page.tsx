@@ -26,7 +26,7 @@ const iconMap = {
 
 export default function AboutPage() {
   const aboutContent = getAboutContent();
-  
+
   return (
     <div className="space-y-12 sm:space-y-16">
       <motion.section
@@ -74,9 +74,7 @@ export default function AboutPage() {
                 {aboutContent.interests}
               </li>
               <li>
-                <span className="font-semibold text-foreground">
-                  Skills:
-                </span>
+                <span className="font-semibold text-foreground">Skills:</span>
                 {aboutContent.skills}
               </li>
             </ul>
@@ -90,7 +88,9 @@ export default function AboutPage() {
           transition={{ delay: 0.1 }}
           className="space-y-4 rounded-xl border border-dashed border-orange-300/40 bg-orange-100/20 p-4 shadow-inner dark:border-orange-600/40 dark:bg-orange-900/20 sm:space-y-6 sm:rounded-2xl sm:p-6 md:p-8"
         >
-          <h2 className="text-lg font-semibold text-foreground sm:text-xl">{aboutContent.coreThemes.title}</h2>
+          <h2 className="text-lg font-semibold text-foreground sm:text-xl">
+            {aboutContent.coreThemes.title}
+          </h2>
           <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
             {aboutContent.coreThemes.description1}
           </p>
@@ -109,7 +109,6 @@ export default function AboutPage() {
           )}
         </motion.div>
       </motion.section>
-
 
       <motion.section
         variants={sectionVariants}

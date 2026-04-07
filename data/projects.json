@@ -51,14 +51,7 @@
     "title": "Call Captioner",
     "image": "/images/call-captioner.png",
     "description": "Developed a real-time AI captioning system for a company project using OpenAI and FastAPI, improving contextual accuracy by 40% and cutting latency by 35%.",
-    "tags": [
-      "Python",
-      "React",
-      "Tailwind",
-      "FastAPI",
-      "WebSocket",
-      "OpenAI"
-    ],
+    "tags": ["Python", "React", "Tailwind", "FastAPI", "WebSocket", "OpenAI"],
     "links": {
       "github": "https://github.com/JoonEom/Call-Captioner"
     }
@@ -67,13 +60,7 @@
     "title": "Motion",
     "image": "/images/motion.png",
     "description": "Creating a full-stack event app supported by Husky Coding Club enabling map-based event discovery and drawing a 100+ user waitlist.",
-    "tags": [
-      "MongoDB",
-      "Express.js",
-      "React.js",
-      "Node.js",
-      "Google Maps API"
-    ],
+    "tags": ["MongoDB", "Express.js", "React.js", "Node.js", "Google Maps API"],
     "links": {
       "github": ""
     }
@@ -82,12 +69,7 @@
     "title": "FlightDB",
     "image": "/images/flightdb.png",
     "description": "Built a PostgreSQL-backed flight management system in Java with secure authentication, transaction-safe bookings, and flight search functionality.",
-    "tags": [
-      "Java",
-      "JDBC",
-      "PostgreSQL",
-      "CLI"
-    ],
+    "tags": ["Java", "JDBC", "PostgreSQL", "CLI"],
     "links": {
       "github": null
     }
@@ -96,12 +78,7 @@
     "title": "Campus Paths",
     "image": "/images/campus-paths.png",
     "description": "Built a JavaFX campus map that visualizes shortest walking routes using a custom weighted graph and Dijkstra’s algorithm.",
-    "tags": [
-      "Java",
-      "JavaFX",
-      "Dijkstra's Algorithm",
-      "JUnit"
-    ],
+    "tags": ["Java", "JavaFX", "Dijkstra's Algorithm", "JUnit"],
     "links": {
       "github": ""
     }
@@ -110,11 +87,7 @@
     "title": "Wacky Wheels",
     "image": "/images/wacky-wheels.png",
     "description": "Built a 3D racing game in Unity with custom terrains, checkpoints, and a ghost car system, reducing in-game bugs by 90%.",
-    "tags": [
-      "Unity",
-      "C#",
-      "3D Game Development"
-    ],
+    "tags": ["Unity", "C#", "3D Game Development"],
     "links": {
       "github": "https://youtu.be/TNGanC0pTW8"
     }
@@ -123,12 +96,7 @@
     "title": "Pokemon Legendary Predictor",
     "image": "/images/pokemon-predictor.png",
     "description": "Built predictive models and visualizations in Python using Kaggle datasets to analyze Pokémon ratings and airline passenger satisfaction.",
-    "tags": [
-      "Python",
-      "Machine Learning",
-      "Pandas",
-      "Neural Networks"
-    ],
+    "tags": ["Python", "Machine Learning", "Pandas", "Neural Networks"],
     "links": {
       "github": "https://github.com/JoonEom/legendary-pokemon-predictor"
     }
@@ -137,12 +105,7 @@
     "title": "Artificial Caffeine",
     "image": "/images/artificial-caffeine.png",
     "description": "Built a real-time facial detection system in Python using OpenCV and MediaPipe that triggered actions based on gestures and eye-closure alerts.",
-    "tags": [
-      "Python",
-      "MediaPipe",
-      "OpenCV",
-      "Computer Vision"
-    ],
+    "tags": ["Python", "MediaPipe", "OpenCV", "Computer Vision"],
     "links": {
       "github": "https://github.com/JoonEom/ArtificialCaffeine"
     }
@@ -151,13 +114,7 @@
     "title": "Song Ranker",
     "image": "/images/song-ranker.png",
     "description": "Built a full-stack Node.js app integrating the Spotify API for automated playlist curation and real-time song tracking.",
-    "tags": [
-      "HTML",
-      "CSS",
-      "Node.js",
-      "Express.js",
-      "Spotify API"
-    ],
+    "tags": ["HTML", "CSS", "Node.js", "Express.js", "Spotify API"],
     "links": {
       "github": "https://github.com/JoonEom/song-ranker"
     }

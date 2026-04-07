@@ -39,7 +39,7 @@ export function Navbar() {
           <BasketballIcon className="h-4 w-4 sm:h-5 sm:w-5" />
           Minjoon
         </Link>
-        
+
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => {
@@ -129,7 +129,7 @@ export function Navbar() {
                   );
                 })}
               </div>
-              
+
               {/* Mobile Resume Button */}
               <div className="mt-4 pt-4 border-t border-orange-200 dark:border-orange-800">
                 <Link

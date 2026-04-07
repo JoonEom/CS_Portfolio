@@ -1,9 +1,9 @@
-import { ContentConfig, ExperienceEntry, Project } from '@/types/content';
+import { ContentConfig, ExperienceEntry, Project } from "@/types/content";
 
 // Import all content data
-import contentConfig from '@/data/content.json';
-import experienceData from '@/data/experience.json';
-import projectsData from '@/data/projects.json';
+import contentConfig from "@/data/content.json";
+import experienceData from "@/data/experience.json";
+import projectsData from "@/data/projects.json";
 
 // Type-safe content access
 export const content = contentConfig as ContentConfig;

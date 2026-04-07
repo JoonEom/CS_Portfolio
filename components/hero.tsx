@@ -25,7 +25,7 @@ const item = {
 
 export function Hero() {
   const heroContent = getHeroContent();
-  
+
   return (
     <section className="relative overflow-hidden rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 via-white to-orange-100/30 p-6 shadow-lg dark:from-orange-950 dark:via-orange-900 dark:to-orange-950/20 sm:rounded-3xl sm:p-8 lg:p-10">
       {/* Basketball Court Lines Background */}
@@ -74,7 +74,10 @@ export function Hero() {
           transition={{ delayChildren: 0.2, staggerChildren: 0.08 }}
           className="flex flex-col gap-3 sm:flex-row sm:gap-4"
         >
-          <motion.div variants={item} transition={{ duration: 0.4, ease: "easeOut" }}>
+          <motion.div
+            variants={item}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
             <Link
               href={heroContent.buttons.primary.href}
               className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-orange-700 hover:shadow-xl sm:w-auto"
@@ -84,7 +87,10 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </Link>
           </motion.div>
-          <motion.div variants={item} transition={{ duration: 0.4, ease: "easeOut" }}>
+          <motion.div
+            variants={item}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
             <Link
               href={heroContent.buttons.secondary.href}
               className="inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-orange-300 px-6 py-3 text-sm font-semibold text-orange-700 transition hover:border-orange-400 hover:bg-orange-50 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-orange-900/20 sm:w-auto"
@@ -102,16 +108,26 @@ export function Hero() {
           className="mt-6 grid grid-cols-3 gap-3 rounded-xl bg-white/50 p-3 backdrop-blur dark:bg-orange-900/50 sm:mt-8 sm:gap-4 sm:rounded-2xl sm:p-4"
         >
           <div className="text-center">
-            <div className="text-xl font-bold text-orange-600 sm:text-2xl">{heroContent.stats.gpa}</div>
+            <div className="text-xl font-bold text-orange-600 sm:text-2xl">
+              {heroContent.stats.gpa}
+            </div>
             <div className="text-xs text-gray-600 dark:text-gray-400">GPA</div>
           </div>
           <div className="text-center">
-            <div className="text-xl font-bold text-orange-600 sm:text-2xl">{heroContent.stats.basketball}</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Lifetime Points</div>
+            <div className="text-xl font-bold text-orange-600 sm:text-2xl">
+              {heroContent.stats.basketball}
+            </div>
+            <div className="text-xs text-gray-600 dark:text-gray-400">
+              Lifetime Points
+            </div>
           </div>
           <div className="text-center">
-            <div className="text-xl font-bold text-orange-600 sm:text-2xl">{heroContent.stats.graduation}</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Graduation</div>
+            <div className="text-xl font-bold text-orange-600 sm:text-2xl">
+              {heroContent.stats.graduation}
+            </div>
+            <div className="text-xs text-gray-600 dark:text-gray-400">
+              Graduation
+            </div>
           </div>
         </motion.div>
       </motion.div>
@@ -124,7 +140,7 @@ export function Hero() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="absolute -right-16 -top-16 h-32 w-32 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 blur-2xl sm:-right-20 sm:-top-20 sm:h-40 sm:w-40"
       />
-      
+
       {/* Basketball Pattern */}
       <motion.div
         aria-hidden="true"

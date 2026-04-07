@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
 interface BasketballIconProps {
   className?: string;
   size?: number;
 }
 
-export function BasketballIcon({ className = "h-5 w-5", size }: BasketballIconProps) {
+export function BasketballIcon({
+  className = "h-5 w-5",
+  size,
+}: BasketballIconProps) {
   return (
     <svg
       width={size || 20}
@@ -24,7 +27,7 @@ export function BasketballIcon({ className = "h-5 w-5", size }: BasketballIconPr
         stroke="currentColor"
         strokeWidth="0.5"
       />
-      
+
       {/* Basketball lines - curved lines that make the basketball pattern */}
       <path
         d="M12 2C12 2 6 6 6 12C6 18 12 22 12 22"
@@ -40,7 +43,7 @@ export function BasketballIcon({ className = "h-5 w-5", size }: BasketballIconPr
         fill="none"
         strokeLinecap="round"
       />
-      
+
       {/* Horizontal line across the middle */}
       <line
         x1="2"
@@ -51,7 +54,7 @@ export function BasketballIcon({ className = "h-5 w-5", size }: BasketballIconPr
         strokeWidth="1.5"
         strokeLinecap="round"
       />
-      
+
       {/* Curved lines on the sides */}
       <path
         d="M2 12C2 12 6 6 12 6C18 6 22 12 22 12"
