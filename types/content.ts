@@ -37,10 +37,7 @@ export interface AboutConfig {
   skills: string;
   coreThemes: {
     title: string;
-    description1: string;
-    description2: string;
-    description3?: string;
-    description4?: string;
+    descriptions: string[];
   };
   interestsSection: {
     title: string;

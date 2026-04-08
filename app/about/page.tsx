@@ -91,22 +91,14 @@ export default function AboutPage() {
           <h2 className="text-lg font-semibold text-foreground sm:text-xl">
             {aboutContent.coreThemes.title}
           </h2>
-          <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
-            {aboutContent.coreThemes.description1}
-          </p>
-          <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
-            {aboutContent.coreThemes.description2}
-          </p>
-          {aboutContent.coreThemes.description3 && (
-            <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
-              {aboutContent.coreThemes.description3}
+          {aboutContent.coreThemes.descriptions.map((desc, index) => (
+            <p
+              key={index}
+              className="text-xs leading-relaxed text-muted-foreground sm:text-sm"
+            >
+              {desc}
             </p>
-          )}
-          {aboutContent.coreThemes.description4 && (
-            <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
-              {aboutContent.coreThemes.description4}
-            </p>
-          )}
+          ))}
         </motion.div>
       </motion.section>
 
