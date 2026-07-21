@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { RouteTransition } from "@/components/route-transition";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { getSiteInfo } from "@/lib/content";
 
 const geistSans = Geist({
@@ -68,6 +69,11 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* Entrance animations are rendered at opacity:0 and revealed by JS.
+            Without this, a visitor with scripts blocked sees an empty page. */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important;filter:none!important}`}</style>
+        </noscript>
       </head>
       <body className="bg-background text-foreground antialiased">
         <a
@@ -77,11 +83,16 @@ export default function RootLayout({
           Skip to content
         </a>
         <ThemeProvider>
+          <ScrollProgress />
           <div className="relative flex min-h-screen flex-col">
             {/* Warm ambient wash behind the whole page */}
             <div
               aria-hidden="true"
               className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(60rem_28rem_at_50%_-6rem,rgb(var(--accent-orange)/0.10),transparent)]"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none fixed inset-0 -z-10 opacity-[0.03] [background-image:radial-gradient(rgb(var(--foreground))_1px,transparent_1px)] [background-size:22px_22px]"
             />
             <Navbar />
             <main

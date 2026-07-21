@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Atom, BookOpen, Brain, Compass, Cpu, Microscope } from "lucide-react";
 import { getAboutContent } from "@/lib/content";
+import { Spotlight } from "@/components/motion-primitives";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -123,21 +124,27 @@ export default function AboutPage() {
             return (
               <motion.div
                 key={interest.label}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ delay: (index % 3) * 0.06, duration: 0.45 }}
-                className="group card p-5 transition duration-300 hover:-translate-y-1 hover:border-accent-orange/30 hover:shadow-card-hover"
+                transition={{
+                  delay: (index % 3) * 0.08,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="group card transition duration-300 hover:-translate-y-1.5 hover:border-accent-orange/30 hover:shadow-card-hover"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-orange/10 text-accent-orange transition group-hover:bg-accent-orange group-hover:text-white">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <h3 className="mt-4 text-base font-semibold tracking-tight text-foreground">
-                  {interest.label}
-                </h3>
-                <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
-                  {interest.description}
-                </p>
+                <Spotlight className="p-5">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-orange/10 text-accent-orange transition duration-300 group-hover:rotate-6 group-hover:bg-accent-orange group-hover:text-white">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold tracking-tight text-foreground">
+                    {interest.label}
+                  </h3>
+                  <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
+                    {interest.description}
+                  </p>
+                </Spotlight>
               </motion.div>
             );
           })}
