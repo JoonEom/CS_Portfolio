@@ -3,97 +3,100 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Project, ProjectLinks } from "@/types/content";
+import { ArrowUpRight, Github, Play } from "lucide-react";
+import { Project } from "@/types/content";
 
 type ProjectsGridProps = {
   projects: Project[];
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
 const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
 
+/** Picks the right label + icon for whatever kind of URL the project links to. */
+function resolveLink(url: string) {
+  if (url.includes("youtube.com") || url.includes("youtu.be")) {
+    return { label: "Watch demo", Icon: Play };
+  }
+  if (url.includes("github")) {
+    return { label: "View source", Icon: Github };
+  }
+  return { label: "Live site", Icon: ArrowUpRight };
+}
+
 export function ProjectsGrid({ projects }: ProjectsGridProps) {
   return (
-    <motion.div
-      className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3"
-      initial="hidden"
-      animate="visible"
-      variants={containerVariants}
-      transition={{ staggerChildren: 0.1, delayChildren: 0.1 }}
-    >
-      {projects.map((project) => (
-        <motion.article
-          key={project.title}
-          variants={cardVariants}
-          whileHover={{ y: -8 }}
-          transition={{ duration: 0.45, ease: "easeOut" }}
-          className="group flex flex-col overflow-hidden rounded-2xl border border-orange-200 bg-orange-50/80 shadow-sm transition hover:shadow-lg dark:bg-orange-950/70 sm:rounded-3xl"
-        >
-          <div className="relative h-48 w-full overflow-hidden sm:h-56">
-            <motion.div whileHover={{ scale: 1.05 }} className="h-full w-full">
+    <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+      {projects.map((project, index) => {
+        const link = project.links.github
+          ? resolveLink(project.links.github)
+          : null;
+
+        return (
+          <motion.article
+            key={project.title}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{
+              duration: 0.45,
+              ease: "easeOut",
+              delay: (index % 3) * 0.06,
+            }}
+            className="group card flex flex-col overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-accent-orange/30 hover:shadow-card-hover"
+          >
+            <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-border bg-surface-muted">
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
-                className="object-cover transition duration-500 ease-out"
+                className="object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
                 loading="lazy"
                 sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
               />
-            </motion.div>
-          </div>
-          <div className="flex flex-1 flex-col gap-3 p-4 sm:gap-4 sm:p-6">
-            <div className="space-y-2">
-              <h3 className="text-lg font-semibold text-foreground sm:text-xl">
+            </div>
+
+            <div className="flex flex-1 flex-col p-5">
+              <h3 className="text-base font-semibold tracking-tight text-foreground">
                 {project.title}
               </h3>
-              <p className="text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 text-pretty text-sm leading-relaxed text-muted-foreground">
                 {project.description}
               </p>
-            </div>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-              {project.tags.map((tag) => (
-                <span
-                  key={`${project.title}-${tag}`}
-                  className="rounded-full border border-orange-300 bg-orange-100 px-2.5 py-1 text-xs font-semibold text-orange-700 dark:border-orange-600 dark:bg-orange-900/30 dark:text-orange-300 sm:px-3"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="mt-auto">
-              {project.links.github ? (
+
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <span key={`${project.title}-${tag}`} className="chip">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-5 flex-1" />
+
+              {link && project.links.github ? (
                 <Link
                   href={project.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-full border border-orange-300 px-4 py-2 text-sm font-semibold text-orange-600 transition hover:bg-orange-50 dark:border-orange-600 dark:text-orange-400 dark:hover:bg-orange-900/20"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-orange transition hover:gap-2"
                 >
-                  {project.links.github.includes("youtube.com") ||
-                  project.links.github.includes("youtu.be")
-                    ? "Watch Demo"
-                    : !project.links.github.includes("github")
-                      ? "Live Website"
-                      : "GitHub"}
+                  <link.Icon className="h-4 w-4" aria-hidden="true" />
+                  {link.label}
+                  <span className="sr-only"> for {project.title}</span>
                 </Link>
               ) : (
-                <div className="inline-flex w-full items-center justify-center rounded-full border border-muted/30 px-4 py-2 text-sm font-medium text-muted-foreground">
-                  GitHub Coming Soon
-                </div>
+                <span className="text-sm font-medium text-muted-foreground/70">
+                  Source coming soon
+                </span>
               )}
             </div>
-          </div>
-        </motion.article>
-      ))}
-    </motion.div>
+          </motion.article>
+        );
+      })}
+    </div>
   );
 }

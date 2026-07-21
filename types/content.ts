@@ -10,6 +10,7 @@ export interface HeroConfig {
     icon: string;
   };
   title: string;
+  role: string;
   subtitle: string;
   buttons: {
     primary: {

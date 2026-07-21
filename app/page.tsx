@@ -1,9 +1,113 @@
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Hero } from "@/components/hero";
+import { ProjectsGrid } from "@/components/projects-grid";
+import { experience, projects } from "@/lib/content";
+
+const featuredProjects = projects.slice(0, 3);
+const recentExperience = experience.slice(0, 3);
+
+function SectionHeading({
+  title,
+  href,
+  linkLabel,
+}: {
+  title: string;
+  href: string;
+  linkLabel: string;
+}) {
+  return (
+    <div className="mb-6 flex items-baseline justify-between gap-4">
+      <h2 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+        {title}
+      </h2>
+      <Link
+        href={href}
+        className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-accent-orange transition hover:gap-2"
+      >
+        {linkLabel}
+        <ArrowRight
+          className="h-4 w-4 transition group-hover:translate-x-0.5"
+          aria-hidden="true"
+        />
+      </Link>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="space-y-12 sm:space-y-16">
+    <div className="space-y-16 sm:space-y-20">
       <Hero />
+
+      {/* Recent experience */}
+      <section>
+        <SectionHeading
+          title="Recent experience"
+          href="/experience"
+          linkLabel="Full timeline"
+        />
+        <div className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
+          {recentExperience.map((entry) => (
+            <div
+              key={`${entry.company}-${entry.role}`}
+              className="flex flex-col gap-1 p-5 transition hover:bg-surface-muted sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6"
+            >
+              <div className="min-w-0">
+                <h3 className="text-base font-semibold tracking-tight text-foreground">
+                  {entry.role}
+                </h3>
+                <p className="mt-0.5 text-sm text-muted-foreground">
+                  {entry.link ? (
+                    <a
+                      href={entry.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-medium text-accent-orange transition hover:underline"
+                    >
+                      {entry.company}
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  ) : (
+                    <span className="font-medium">{entry.company}</span>
+                  )}
+                </p>
+              </div>
+              <span className="shrink-0 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+                {entry.duration}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Featured projects */}
+      <section>
+        <SectionHeading
+          title="Featured projects"
+          href="/projects"
+          linkLabel="All projects"
+        />
+        <ProjectsGrid projects={featuredProjects} />
+      </section>
+
+      {/* Closing call to action */}
+      <section className="overflow-hidden rounded-2xl border border-accent-orange/25 bg-accent-orange/[0.07] px-6 py-10 text-center sm:px-10 sm:py-14">
+        <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+          Looking for someone to build with?
+        </h2>
+        <p className="mx-auto mt-3 max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
+          I&apos;m open to internships, collaborations, and interesting
+          problems. The fastest way to reach me is a quick note.
+        </p>
+        <Link href="/contact" className="btn-primary mt-7">
+          Get in touch
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
+        </Link>
+      </section>
     </div>
   );
 }

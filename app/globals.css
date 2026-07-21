@@ -3,21 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --background: 255 248 240;
-  --foreground: 15 23 42;
-  --muted: 254 243 199;
-  --muted-foreground: 71 85 105;
+  /* Warm paper base — orange stays an accent, not the whole surface */
+  --background: 253 250 245;
+  --surface: 255 255 255;
+  --surface-muted: 250 246 239;
+  --foreground: 26 22 20;
+  --muted: 234 226 214;
+  --muted-foreground: 107 98 90;
+  --border: 233 225 213;
   --accent-orange: 234 88 12;
-  --accent-amber: 245 158 11;
-  --accent-yellow: 250 204 21;
+  --accent-amber: 217 119 6;
+  --accent-yellow: 202 138 4;
   color-scheme: light;
 }
 
 .dark {
-  --background: 30 20 10;
-  --foreground: 254 243 199;
-  --muted: 50 35 20;
-  --muted-foreground: 180 150 100;
+  --background: 18 16 14;
+  --surface: 28 25 23;
+  --surface-muted: 35 31 28;
+  --foreground: 245 240 232;
+  --muted: 51 46 41;
+  --muted-foreground: 166 156 144;
+  --border: 48 43 38;
   --accent-orange: 251 146 60;
   --accent-amber: 251 191 36;
   --accent-yellow: 253 224 71;
@@ -30,12 +37,69 @@
   }
 
   body {
-    @apply bg-background text-foreground min-h-screen;
+    @apply min-h-screen bg-background text-foreground;
     font-family:
       var(--font-geist-sans),
       system-ui,
       -apple-system,
       Segoe UI,
       sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Visible, consistent keyboard focus on every interactive element */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-orange/70 ring-offset-2 ring-offset-background;
+  }
+
+  ::selection {
+    @apply bg-accent-orange/20 text-foreground;
+  }
+}
+
+@layer components {
+  /* Elevated content surface — the workhorse container */
+  .card {
+    @apply rounded-2xl border border-border bg-surface shadow-card;
+  }
+
+  /* Small uppercase label that sits above a page title */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-accent-orange/25 bg-accent-orange/10 px-3 py-1 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-accent-orange;
+  }
+
+  /* Outline chips for tech / tags */
+  .chip {
+    @apply inline-flex items-center rounded-md border border-border bg-surface-muted px-2 py-1 text-xs font-medium text-muted-foreground;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent-orange px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-accent-orange/90 hover:shadow-md active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-foreground shadow-sm transition hover:border-accent-orange/40 hover:text-accent-orange active:scale-[0.98];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+/* Respect users who ask the OS to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -9,8 +9,9 @@
       "text": "Developer by day, hooper by night",
       "icon": "CircleDot"
     },
-    "title": "Minjoon Eom — 3rd year cs student @ UW looking for internship opportunities",
-    "subtitle": "CS student @ UW • Full-stack developer • Basketball enthusiast",
+    "title": "Minjoon Eom",
+    "role": "3rd year CS student at the University of Washington",
+    "subtitle": "Full-stack developer working across applied AI, robotics, and human-centered products — and the founder of Kairo. Currently looking for internship opportunities.",
     "buttons": {
       "primary": {
         "text": "Check My Game",
@@ -116,7 +117,7 @@
         },
         "resume": {
           "text": "Résumé PDF",
-          "href": "/minjoon_eom.pdf"
+          "href": "/Minjoon_Eom.pdf"
         }
       },
       "note": ""

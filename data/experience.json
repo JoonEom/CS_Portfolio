@@ -1,5 +1,21 @@
 [
   {
+    "role": "Founder & Software Engineer",
+    "company": "Kairo",
+    "duration": "Jun 2026 – Present",
+    "description": "Founded and built Kairo, an iOS app that turns each week into a set of photo postcards you only share with your close friends — everyone's postcards stay sealed until a synchronized reveal every Thursday. Shipped the full stack solo: React Native + Expo client with offline-first capture, Supabase backend, Sign in with Apple, and reveal rules enforced at the database layer with row-level security.",
+    "technologies": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "iOS",
+      "Product Design"
+    ],
+    "link": "https://gettingkairo.com"
+  },
+  {
     "role": "Software Engineer",
     "company": "University of Washington CBE",
     "duration": "Jun 2025 – Present",

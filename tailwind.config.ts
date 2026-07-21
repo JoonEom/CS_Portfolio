@@ -12,8 +12,10 @@ const config: Config = {
     extend: {
       colors: {
         background: "rgb(var(--background) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        "surface-muted": "rgb(var(--surface-muted) / <alpha-value>)",
         foreground: "rgb(var(--foreground) / <alpha-value>)",
-        border: "rgb(var(--muted) / <alpha-value>)",
+        border: "rgb(var(--border) / <alpha-value>)",
         muted: "rgb(var(--muted) / <alpha-value>)",
         "muted-foreground": "rgb(var(--muted-foreground) / <alpha-value>)",
         accent: {
@@ -32,6 +34,12 @@ const config: Config = {
       },
       boxShadow: {
         glow: "0 25px 50px -12px rgb(var(--accent-orange) / 0.35)",
+        card: "0 1px 2px rgb(28 25 23 / 0.04), 0 4px 12px -4px rgb(28 25 23 / 0.06)",
+        "card-hover":
+          "0 2px 4px rgb(28 25 23 / 0.05), 0 12px 28px -8px rgb(28 25 23 / 0.12)",
+      },
+      letterSpacing: {
+        tightest: "-0.035em",
       },
     },
   },
