@@ -108,7 +108,9 @@ export interface ExperienceEntry {
 }
 
 export interface ProjectLinks {
-  github?: string;
+  github?: string | null;
+  appStore?: string | null;
+  website?: string | null;
 }
 
 export interface Project {

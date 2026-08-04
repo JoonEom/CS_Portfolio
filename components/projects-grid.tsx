@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github, Play } from "lucide-react";
+import { ArrowUpRight, Apple, Github, Play } from "lucide-react";
 import { Project } from "@/types/content";
 import { Spotlight } from "./motion-primitives";
 
@@ -31,9 +31,17 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
   return (
     <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
       {projects.map((project, index) => {
-        const link = project.links.github
-          ? resolveLink(project.links.github)
-          : null;
+        const links = [
+          project.links.appStore
+            ? { href: project.links.appStore, label: "App Store", Icon: Apple }
+            : null,
+          project.links.website
+            ? { href: project.links.website, label: "Website", Icon: ArrowUpRight }
+            : null,
+          project.links.github
+            ? { href: project.links.github, ...resolveLink(project.links.github) }
+            : null,
+        ].filter((entry): entry is NonNullable<typeof entry> => entry !== null);
 
         return (
           <motion.article
@@ -83,17 +91,22 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
 
               <div className="mt-5 flex-1" />
 
-              {link && project.links.github ? (
-                <Link
-                  href={project.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-orange transition hover:gap-2"
-                >
-                  <link.Icon className="h-4 w-4" aria-hidden="true" />
-                  {link.label}
-                  <span className="sr-only"> for {project.title}</span>
-                </Link>
+              {links.length > 0 ? (
+                <div className="flex flex-wrap gap-x-4 gap-y-1.5">
+                  {links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent-orange transition hover:gap-2"
+                    >
+                      <link.Icon className="h-4 w-4" aria-hidden="true" />
+                      {link.label}
+                      <span className="sr-only"> for {project.title}</span>
+                    </Link>
+                  ))}
+                </div>
               ) : (
                 <span className="text-sm font-medium text-muted-foreground/70">
                   Source coming soon

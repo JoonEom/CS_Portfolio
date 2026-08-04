@@ -1,5 +1,15 @@
 [
   {
+    "title": "Kairo",
+    "image": "/images/kairo.jpg",
+    "description": "A postcard journal app for iOS that turns daily reflections into shareable, keepsake-style postcards — blending journaling with a tactile, mailable format.",
+    "tags": ["Swift", "SwiftUI", "iOS"],
+    "links": {
+      "appStore": "https://apps.apple.com/us/app/kairo-postcard-journal/id6788220408",
+      "website": "https://gettingkairo.com"
+    }
+  },
+  {
     "title": "RootMap",
     "image": "/images/rootmap.jpg",
     "description": "An iOS nutrition app that translates every meal into what it actually does for your body — mapping food to 26 micronutrients and six body zones instead of counting calories. Photo or plain-text meal logging is parsed by GPT-4o-mini and matched against the USDA FoodData Central database.",
