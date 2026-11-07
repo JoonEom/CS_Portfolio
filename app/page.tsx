@@ -5,6 +5,35 @@ import { BoxScore } from "@/components/box-score";
 import { ProjectIndex } from "@/components/project-index";
 import { experience, getHeroContent, projects } from "@/lib/content";
 
+// Phrases in the intro that carry the pitch get a court-orange underline.
+const highlights = [
+  "applied AI",
+  "cloud infrastructure",
+  "human-centered products",
+  "Kairo",
+  "DigitalOcean",
+];
+
+function Highlighted({ text }: { text: string }) {
+  const pattern = new RegExp(`(${highlights.join("|")})`, "g");
+  return (
+    <>
+      {text.split(pattern).map((part, index) =>
+        highlights.includes(part) ? (
+          <span
+            key={index}
+            className="underline decoration-court decoration-[0.12em] underline-offset-[0.18em] [text-decoration-skip-ink:none]"
+          >
+            {part}
+          </span>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  );
+}
+
 const featuredProjects = projects.slice(0, 3);
 const recentExperience = experience.slice(0, 3);
 
@@ -19,7 +48,7 @@ function SectionHeading({
 }) {
   return (
     <div className="shell mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
-      <h2 className="display text-[clamp(3rem,8vw,6rem)] leading-[0.85]">
+      <h2 className="display text-[clamp(2rem,5vw,3.5rem)] leading-[0.9]">
         {title}
       </h2>
       <Link
@@ -45,7 +74,7 @@ export default function Home() {
 
       <section className="shell py-16 sm:py-24">
         <p className="max-w-4xl text-balance text-2xl font-semibold leading-snug sm:text-4xl sm:leading-tight">
-          {hero.subtitle}
+          <Highlighted text={hero.subtitle} />
         </p>
       </section>
 

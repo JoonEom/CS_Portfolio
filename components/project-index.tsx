@@ -119,9 +119,13 @@ export function ProjectIndex({ projects }: ProjectIndexProps) {
                 <span className="tnum w-7 shrink-0 font-mono text-sm text-muted-foreground group-data-[active=true]:text-ink">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="display flex-1 text-[2.25rem] group-data-[active=true]:text-ink sm:text-5xl">
+                <span className="display flex-1 text-[1.75rem] group-data-[active=true]:text-ink sm:text-4xl">
                   {project.title}
                 </span>
+                <ArrowUpRight
+                  className="h-6 w-6 shrink-0 -translate-x-2 self-center text-ink opacity-0 transition duration-300 group-data-[active=true]:translate-x-0 group-data-[active=true]:opacity-100"
+                  aria-hidden="true"
+                />
               </button>
 
               {isActive && (

@@ -1,24 +1,29 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowDown, ArrowRight, RotateCcw } from "lucide-react";
 import { getHeroContent } from "@/lib/content";
 import { ShotDiagram } from "./shot-diagram";
 
 /**
- * First viewport = the thesis. A full-bleed court-orange field, the name set
- * like a jersey, and a shot diagram that plays once. The page's one authored
- * motion lives here; nothing else on the site enters with an effect.
+ * First viewport = the thesis. A court-orange field, the name set like a
+ * jersey, and a shot diagram that plays once on load and again on request.
+ * It is the page's one authored motion; nothing else enters with an effect.
  */
 export function Hero() {
   const hero = getHeroContent();
   const [first, ...rest] = hero.title.split(" ");
   const last = rest.join(" ");
   const [roleMain, ...roleRest] = hero.role.split(" · ");
+  // Changing the key remounts the diagram, which replays every animation
+  const [shot, setShot] = useState(0);
 
   return (
     <section className="relative overflow-hidden bg-court text-ink">
-      <div className="shell relative flex min-h-[calc(100svh-4rem)] flex-col justify-between gap-10 pb-0 pt-10 sm:pt-14 lg:min-h-[min(58rem,calc(100svh-4rem))]">
+      <div className="shell relative flex min-h-[min(40rem,calc(100svh-4rem))] flex-col justify-between gap-10 pb-0 pt-10 sm:pt-14 lg:min-h-[min(44rem,calc(100svh-4rem))]">
         <div className="relative z-10 max-w-3xl">
-          <h1 className="display text-[clamp(5rem,19vw,15rem)] leading-[0.8]">
+          <h1 className="display text-[clamp(4.25rem,15vw,12rem)] font-black leading-[0.8]">
             {first}
             <br />
             {last}
@@ -51,10 +56,26 @@ export function Hero() {
                 aria-hidden="true"
               />
             </Link>
+            <button
+              type="button"
+              onClick={() => setShot((n) => n + 1)}
+              className="group inline-flex items-center gap-2 text-base font-bold"
+            >
+              <RotateCcw
+                className="h-4 w-4 transition duration-500 group-hover:-rotate-180"
+                aria-hidden="true"
+              />
+              <span className="underline decoration-2 underline-offset-[6px]">
+                Shoot again
+              </span>
+            </button>
           </div>
         </div>
 
-        <ShotDiagram className="relative -mx-4 mt-2 w-[calc(100%+2rem)] max-w-none self-end sm:-mx-6 sm:w-[calc(100%+3rem)] lg:absolute lg:-right-10 lg:bottom-0 lg:mx-0 lg:mt-0 lg:w-[66%]" />
+        <ShotDiagram
+          key={shot}
+          className="relative -mx-4 mt-2 w-[calc(100%+2rem)] max-w-none self-end sm:-mx-6 sm:w-[calc(100%+3rem)] lg:absolute lg:-right-10 lg:bottom-0 lg:mx-0 lg:mt-0 lg:w-[66%]"
+        />
       </div>
     </section>
   );

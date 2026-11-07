@@ -16,7 +16,7 @@
   --muted: 214 208 198;
   --muted-foreground: 94 86 78;
   --border: 188 180 169;
-  --court: 255 106 26;
+  --court: 236 92 22;
   --ink: 22 18 15;
   --accent-text: 190 58 0;
   color-scheme: light;
@@ -30,7 +30,7 @@
   --muted: 52 45 39;
   --muted-foreground: 168 158 146;
   --border: 64 56 48;
-  --court: 255 106 26;
+  --court: 236 92 22;
   --ink: 20 14 10;
   --accent-text: 255 128 58;
   color-scheme: dark;
@@ -88,10 +88,18 @@
   /* Display voice: Archivo at its narrowest width, heaviest weight */
   .display {
     font-stretch: 62%;
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: -0.005em;
     line-height: 0.9;
+  }
+
+  /* The ball mark in the nav turns a half-revolution on hover */
+  .ball-mark {
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  a:hover > .ball-mark {
+    transform: rotate(-180deg);
   }
 
   .tnum {

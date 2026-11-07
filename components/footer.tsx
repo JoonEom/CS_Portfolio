@@ -10,7 +10,6 @@ export function Footer() {
   const contactContent = getContactContent();
   const { email, linkedin, github } = contactContent.sidebar.links;
   const emailAddress = email.href.replace("mailto:", "");
-  const showCloser = pathname !== "/contact";
 
   const links = [
     { ...linkedin, external: true },
@@ -19,19 +18,21 @@ export function Footer() {
 
   return (
     <footer className="mt-24">
-      {showCloser && (
+      {/* The big court-orange closer belongs to the home page only. Elsewhere
+          the same invitation is quieter, so orange stays a moment, not wallpaper. */}
+      {pathname === "/" && (
         <section className="bg-court text-ink" aria-labelledby="closer-heading">
-          <div className="shell py-14 sm:py-20">
+          <div className="shell py-12 sm:py-16">
             <h2
               id="closer-heading"
-              className="display text-[clamp(3.5rem,12vw,10rem)] leading-[0.82]"
+              className="display text-[clamp(3rem,9vw,7rem)] font-black leading-[0.85]"
             >
               {contactContent.pageTitle}
             </h2>
-            <p className="mt-5 max-w-md text-lg font-medium">
+            <p className="mt-4 max-w-md text-lg font-medium">
               {contactContent.pageDescription}
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+            <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link href="/contact" className="btn btn-ink">
                 Send a message
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -42,6 +43,28 @@ export function Footer() {
               >
                 {emailAddress}
               </a>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {pathname !== "/" && pathname !== "/contact" && (
+        <section className="shell" aria-labelledby="closer-heading">
+          <div className="rule-draw flex flex-wrap items-end justify-between gap-x-8 gap-y-5 pb-4 pt-10">
+            <h2
+              id="closer-heading"
+              className="display text-[clamp(2rem,5vw,3.5rem)] leading-[0.9]"
+            >
+              {contactContent.pageTitle}
+            </h2>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a href={email.href} className="link text-lg">
+                {emailAddress}
+              </a>
+              <Link href="/contact" className="btn btn-court">
+                Send a message
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </section>

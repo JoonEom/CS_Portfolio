@@ -54,7 +54,7 @@ export function Navbar() {
           className="flex items-center gap-2.5 text-foreground"
           aria-label="Minjoon Eom, home"
         >
-          <BallMark className="h-7 w-7 text-foreground" />
+          <BallMark className="ball-mark h-7 w-7 text-foreground" />
           <span className="display text-2xl leading-none">Minjoon Eom</span>
         </Link>
 

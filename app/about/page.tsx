@@ -22,7 +22,7 @@ export default function AboutPage() {
       <header className="shell pb-12 pt-12 sm:pb-16 sm:pt-20">
         <div className="flex items-start gap-6 sm:gap-10">
           <div className="min-w-0 flex-1">
-            <h1 className="display text-[clamp(3.75rem,13vw,10.5rem)] leading-[0.82]">
+            <h1 className="display text-[clamp(3.25rem,10vw,7.5rem)] leading-[0.82]">
               About
             </h1>
             <p className="mt-6 max-w-3xl text-balance text-xl font-semibold leading-snug sm:text-3xl sm:leading-snug">
@@ -61,14 +61,14 @@ export default function AboutPage() {
 
       {/* Focus areas */}
       <section className="shell pt-20 sm:pt-28">
-        <h2 className="display text-[clamp(3rem,8vw,6rem)] leading-[0.85]">
+        <h2 className="display text-[clamp(2rem,5vw,3.5rem)] leading-[0.85]">
           {about.interestsSection.title}
         </h2>
         <ul className="mt-8 border-b border-border">
           {about.interestsSection.items.map((item) => (
             <li key={item.label} className="rule-draw row-wipe group">
               <div className="grid gap-x-10 gap-y-1 px-3 py-5 sm:px-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-baseline">
-                <h3 className="display text-[2rem] sm:text-5xl">
+                <h3 className="display text-[1.75rem] sm:text-4xl">
                   {item.label}
                 </h3>
                 <p className="text-lg text-muted-foreground group-hover:text-ink">
@@ -82,7 +82,7 @@ export default function AboutPage() {
 
       {/* Off the court */}
       <section className="shell pt-20 sm:pt-28">
-        <h2 className="display text-[clamp(3rem,8vw,6rem)] leading-[0.85]">
+        <h2 className="display text-[clamp(2rem,5vw,3.5rem)] leading-[0.85]">
           {about.coreThemes.title}
         </h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2 md:gap-12">

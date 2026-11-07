@@ -27,7 +27,7 @@ export function BoxScore({ entries, compact = false }: BoxScoreProps) {
               </p>
 
               <div>
-                <h3 className="display text-[2.5rem] sm:text-6xl">
+                <h3 className="display text-[2rem] sm:text-5xl">
                   {entry.link ? (
                     <a
                       href={entry.link}
