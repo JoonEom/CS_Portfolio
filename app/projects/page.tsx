@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProjectsGrid } from "@/components/projects-grid";
+import { ProjectIndex } from "@/components/project-index";
 import { PageHeader } from "@/components/page-header";
 import { projects, getProjectsContent } from "@/lib/content";
 
@@ -13,14 +13,12 @@ export default function ProjectsPage() {
   const projectsContent = getProjectsContent();
 
   return (
-    <div className="space-y-10 sm:space-y-12">
+    <>
       <PageHeader
-        badge={projectsContent.badge}
         title={projectsContent.pageTitle}
         description={projectsContent.pageDescription}
       />
-
-      <ProjectsGrid projects={projects} />
-    </div>
+      <ProjectIndex projects={projects} />
+    </>
   );
 }

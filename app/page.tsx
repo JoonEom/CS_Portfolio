@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero";
-import { ProjectsGrid } from "@/components/projects-grid";
-import { Marquee, Reveal, Spotlight } from "@/components/motion-primitives";
-import { experience, getAboutContent, projects } from "@/lib/content";
+import { BoxScore } from "@/components/box-score";
+import { ProjectIndex } from "@/components/project-index";
+import { experience, getHeroContent, projects } from "@/lib/content";
 
 const featuredProjects = projects.slice(0, 3);
 const recentExperience = experience.slice(0, 3);
@@ -18,112 +18,54 @@ function SectionHeading({
   linkLabel: string;
 }) {
   return (
-    <Reveal className="mb-6 flex items-baseline justify-between gap-4">
-      <h2 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+    <div className="shell mb-8 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+      <h2 className="display text-[clamp(3rem,8vw,6rem)] leading-[0.85]">
         {title}
       </h2>
       <Link
         href={href}
-        className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-accent-orange transition hover:gap-2"
+        className="group inline-flex items-center gap-2 font-bold text-accent-text underline decoration-2 underline-offset-[6px]"
       >
         {linkLabel}
         <ArrowRight
-          className="h-4 w-4 transition group-hover:translate-x-0.5"
+          className="h-4 w-4 transition group-hover:translate-x-1"
           aria-hidden="true"
         />
       </Link>
-    </Reveal>
+    </div>
   );
 }
 
 export default function Home() {
-  const skills = getAboutContent()
-    .skills.split(",")
-    .map((skill) => skill.trim())
-    .filter(Boolean);
+  const hero = getHeroContent();
 
   return (
-    <div className="space-y-16 sm:space-y-20">
+    <>
       <Hero />
 
-      {/* Skills ticker */}
-      <Reveal>
-        <Marquee items={skills} />
-      </Reveal>
+      <section className="shell py-16 sm:py-24">
+        <p className="max-w-4xl text-balance text-2xl font-semibold leading-snug sm:text-4xl sm:leading-tight">
+          {hero.subtitle}
+        </p>
+      </section>
 
-      {/* Recent experience */}
       <section>
         <SectionHeading
           title="Recent experience"
           href="/experience"
-          linkLabel="Full timeline"
+          linkLabel="Full box score"
         />
-        <div className="divide-y divide-border overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
-          {recentExperience.map((entry, index) => (
-            <Reveal key={`${entry.company}-${entry.role}`} delay={index * 0.08}>
-              <Spotlight className="flex flex-col gap-1 p-5 transition-colors duration-300 hover:bg-surface-muted sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-6">
-                <div className="min-w-0">
-                  <h3 className="text-base font-semibold tracking-tight text-foreground">
-                    {entry.role}
-                  </h3>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
-                    {entry.link ? (
-                      <a
-                        href={entry.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/link inline-flex items-center gap-1 font-medium text-accent-orange transition hover:underline"
-                      >
-                        {entry.company}
-                        <ArrowUpRight
-                          className="h-3.5 w-3.5 transition group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
-                          aria-hidden="true"
-                        />
-                      </a>
-                    ) : (
-                      <span className="font-medium">{entry.company}</span>
-                    )}
-                  </p>
-                </div>
-                <span className="shrink-0 font-mono text-xs uppercase tracking-wide text-muted-foreground">
-                  {entry.duration}
-                </span>
-              </Spotlight>
-            </Reveal>
-          ))}
-        </div>
+        <BoxScore entries={recentExperience} compact />
       </section>
 
-      {/* Featured projects */}
-      <section>
+      <section className="pt-20 sm:pt-28">
         <SectionHeading
           title="Featured projects"
           href="/projects"
           linkLabel="All projects"
         />
-        <ProjectsGrid projects={featuredProjects} />
+        <ProjectIndex projects={featuredProjects} />
       </section>
-
-      {/* Closing call to action */}
-      <Reveal>
-        <Spotlight className="overflow-hidden rounded-2xl border border-accent-orange/25 bg-accent-orange/[0.07] px-6 py-10 text-center sm:px-10 sm:py-14">
-          <h2 className="text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Looking for someone to build with?
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-            I&apos;m open to collaborations, interesting problems, and good
-            conversations about building things. The fastest way to reach me is
-            a quick note.
-          </p>
-          <Link href="/contact" className="btn-primary group mt-7">
-            Get in touch
-            <ArrowRight
-              className="h-4 w-4 transition group-hover:translate-x-0.5"
-              aria-hidden="true"
-            />
-          </Link>
-        </Spotlight>
-      </Reveal>
-    </div>
+    </>
   );
 }

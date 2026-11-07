@@ -1,155 +1,101 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Atom, BookOpen, Brain, Compass, Cpu, Microscope } from "lucide-react";
 import { getAboutContent } from "@/lib/content";
-import { Spotlight } from "@/components/motion-primitives";
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const iconMap = {
-  Brain,
-  Cpu,
-  BookOpen,
-  Atom,
-  Compass,
-  Microscope,
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Minjoon Eom is a software engineer at DigitalOcean and a University of Washington computer science student.",
 };
 
 export default function AboutPage() {
-  const aboutContent = getAboutContent();
+  const about = getAboutContent();
 
   const facts = [
-    { label: "Education", value: aboutContent.education },
-    { label: "Interests", value: aboutContent.interests },
-    { label: "Skills", value: aboutContent.skills },
+    { label: "Education", value: about.education },
+    { label: "Interests", value: about.interests },
+    { label: "Skills", value: about.skills },
   ];
 
   return (
-    <div className="space-y-12 sm:space-y-16">
-      {/* Intro */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        animate="visible"
-        transition={{ duration: 0.55, ease: "easeOut" }}
-        className="card overflow-hidden p-6 sm:p-9 lg:p-10"
-      >
-        <div className="grid gap-8 md:grid-cols-[auto_1fr] md:gap-10">
-          <div className="flex justify-center md:justify-start">
-            <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl ring-1 ring-border sm:h-36 sm:w-36">
-              <Image
-                src="/images/profile3.jpeg"
-                alt={`Portrait of ${aboutContent.name}`}
-                fill
-                sizes="(min-width: 640px) 144px, 112px"
-                className="scale-150 object-cover object-center"
-                priority
-              />
-            </div>
-          </div>
-
-          <div>
-            <h1 className="text-balance text-3xl font-semibold tracking-tightest text-foreground sm:text-4xl">
-              {aboutContent.name}
+    <>
+      <header className="shell pb-12 pt-12 sm:pb-16 sm:pt-20">
+        <div className="flex items-start gap-6 sm:gap-10">
+          <div className="min-w-0 flex-1">
+            <h1 className="display text-[clamp(3.75rem,13vw,10.5rem)] leading-[0.82]">
+              About
             </h1>
-            <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground">
-              {aboutContent.bio}
+            <p className="mt-6 max-w-3xl text-balance text-xl font-semibold leading-snug sm:text-3xl sm:leading-snug">
+              {about.bio}
             </p>
-
-            <dl className="mt-7 space-y-3 border-t border-border pt-6">
-              {facts.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="grid gap-1 sm:grid-cols-[7rem_1fr] sm:gap-4"
-                >
-                  <dt className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/80">
-                    {fact.label}
-                  </dt>
-                  <dd className="text-sm leading-relaxed text-foreground">
-                    {fact.value.trim()}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+          </div>
+          <div className="relative hidden h-36 w-36 shrink-0 overflow-hidden border-2 border-foreground/80 sm:block">
+            <Image
+              src="/images/profile-crop.jpg"
+              alt={`Portrait of ${about.name}`}
+              fill
+              sizes="9rem"
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
-      </motion.section>
+      </header>
 
-      {/* Besides coding */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
-        className="rounded-2xl border border-border bg-surface-muted p-6 sm:p-9 lg:p-10"
-      >
-        <h2 className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-          {aboutContent.coreThemes.title}
+      {/* Scouting report */}
+      <section className="shell">
+        <dl className="border-b border-border">
+          {facts.map((fact) => (
+            <div
+              key={fact.label}
+              className="rule-draw grid gap-1 py-6 md:grid-cols-[11.5rem_minmax(0,1fr)] md:gap-10"
+            >
+              <dt className="font-bold text-muted-foreground">{fact.label}</dt>
+              <dd className="max-w-3xl text-lg font-medium leading-relaxed">
+                {fact.value.trim()}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      {/* Focus areas */}
+      <section className="shell pt-20 sm:pt-28">
+        <h2 className="display text-[clamp(3rem,8vw,6rem)] leading-[0.85]">
+          {about.interestsSection.title}
         </h2>
-        <div className="mt-5 grid gap-5 md:grid-cols-2 md:gap-8">
-          {aboutContent.coreThemes.descriptions.map((desc, index) => (
+        <ul className="mt-8 border-b border-border">
+          {about.interestsSection.items.map((item) => (
+            <li key={item.label} className="rule-draw row-wipe group">
+              <div className="grid gap-x-10 gap-y-1 px-3 py-5 sm:px-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:items-baseline">
+                <h3 className="display text-[2rem] sm:text-5xl">
+                  {item.label}
+                </h3>
+                <p className="text-lg text-muted-foreground group-hover:text-ink">
+                  {item.description}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Off the court */}
+      <section className="shell pt-20 sm:pt-28">
+        <h2 className="display text-[clamp(3rem,8vw,6rem)] leading-[0.85]">
+          {about.coreThemes.title}
+        </h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-2 md:gap-12">
+          {about.coreThemes.descriptions.map((desc) => (
             <p
-              key={index}
-              className="text-pretty text-sm leading-relaxed text-muted-foreground"
+              key={desc}
+              className="text-pretty text-lg leading-relaxed text-muted-foreground"
             >
               {desc}
             </p>
           ))}
         </div>
-      </motion.section>
-
-      {/* Interests & skills */}
-      <section>
-        <motion.h2
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
-        >
-          {aboutContent.interestsSection.title}
-        </motion.h2>
-
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {aboutContent.interestsSection.items.map((interest, index) => {
-            const Icon = iconMap[interest.icon as keyof typeof iconMap];
-
-            return (
-              <motion.div
-                key={interest.label}
-                initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  delay: (index % 3) * 0.08,
-                  duration: 0.6,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="group card transition duration-300 hover:-translate-y-1.5 hover:border-accent-orange/30 hover:shadow-card-hover"
-              >
-                <Spotlight className="p-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent-orange/10 text-accent-orange transition duration-300 group-hover:rotate-6 group-hover:bg-accent-orange group-hover:text-white">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <h3 className="mt-4 text-base font-semibold tracking-tight text-foreground">
-                    {interest.label}
-                  </h3>
-                  <p className="mt-1.5 text-pretty text-sm leading-relaxed text-muted-foreground">
-                    {interest.description}
-                  </p>
-                </Spotlight>
-              </motion.div>
-            );
-          })}
-        </div>
       </section>
-    </div>
+    </>
   );
 }

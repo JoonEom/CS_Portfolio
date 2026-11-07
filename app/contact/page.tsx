@@ -2,15 +2,7 @@
 
 import { useEffect, useState, useTransition } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  AlertCircle,
-  CheckCircle2,
-  Github,
-  Linkedin,
-  Mail,
-  Upload,
-} from "lucide-react";
+import { AlertCircle, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 import { getContactContent } from "@/lib/content";
 
@@ -31,8 +23,12 @@ const initialForm: FormState = {
   message: "",
 };
 
+// Fields are underlined, like lines on a court, and the line turns court
+// orange on focus.
 const fieldClasses =
-  "w-full rounded-xl border border-border bg-surface px-3.5 py-2.5 text-sm text-foreground outline-none transition placeholder:text-muted-foreground/60 focus:border-accent-orange focus:ring-2 focus:ring-accent-orange/25";
+  "w-full rounded-none border-0 border-b-2 border-foreground/50 bg-transparent px-0 py-3 text-xl font-medium text-foreground outline-none transition placeholder:text-muted-foreground/60 focus:border-court focus-visible:outline-none";
+
+const labelClasses = "block text-sm font-bold text-muted-foreground";
 
 export default function ContactPage() {
   const contactContent = getContactContent();
@@ -41,14 +37,10 @@ export default function ContactPage() {
   const [isPending, startTransition] = useTransition();
 
   const socialLinks = [
-    { ...contactContent.sidebar.links.email, Icon: Mail, external: false },
-    {
-      ...contactContent.sidebar.links.linkedin,
-      Icon: Linkedin,
-      external: true,
-    },
-    { ...contactContent.sidebar.links.github, Icon: Github, external: true },
-    { ...contactContent.sidebar.links.resume, Icon: Upload, external: true },
+    { ...contactContent.sidebar.links.email, external: false },
+    { ...contactContent.sidebar.links.linkedin, external: true },
+    { ...contactContent.sidebar.links.github, external: true },
+    { ...contactContent.sidebar.links.resume, external: true },
   ];
 
   useEffect(() => {
@@ -100,144 +92,125 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="space-y-10 sm:space-y-12">
+    <>
       <PageHeader
-        badge={contactContent.badge}
         title={contactContent.pageTitle}
         description={contactContent.pageDescription}
-        icon={<Mail className="h-3 w-3" aria-hidden="true" />}
       />
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-8">
-        <section className="card p-5 sm:p-8">
-          <form className="space-y-5" onSubmit={handleSubmit} noValidate>
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div className="space-y-2">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-foreground"
-                >
-                  {contactContent.form.nameLabel}
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                  autoComplete="name"
-                  className={fieldClasses}
-                />
-              </div>
-              <div className="space-y-2">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-semibold text-foreground"
-                >
-                  {contactContent.form.emailLabel}
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                  autoComplete="email"
-                  className={fieldClasses}
-                />
-              </div>
-            </div>
-
-            <div className="space-y-2">
-              <label
-                htmlFor="message"
-                className="block text-sm font-semibold text-foreground"
-              >
-                {contactContent.form.messageLabel}
+      <div className="shell grid gap-14 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-20">
+        <form className="space-y-8" onSubmit={handleSubmit} noValidate>
+          <div className="grid gap-8 sm:grid-cols-2">
+            <div className="space-y-1">
+              <label htmlFor="name" className={labelClasses}>
+                {contactContent.form.nameLabel}
               </label>
-              <textarea
-                id="message"
-                name="message"
-                value={form.message}
+              <input
+                id="name"
+                type="text"
+                name="name"
+                value={form.name}
                 onChange={handleChange}
                 required
-                rows={6}
-                className={`${fieldClasses} resize-y`}
+                autoComplete="name"
+                className={fieldClasses}
               />
             </div>
+            <div className="space-y-1">
+              <label htmlFor="email" className={labelClasses}>
+                {contactContent.form.emailLabel}
+              </label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                autoComplete="email"
+                className={fieldClasses}
+              />
+            </div>
+          </div>
 
-            <button
-              type="submit"
-              disabled={isPending}
-              className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+          <div className="space-y-1">
+            <label htmlFor="message" className={labelClasses}>
+              {contactContent.form.messageLabel}
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              required
+              rows={5}
+              className={`${fieldClasses} resize-y`}
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isPending}
+            className="btn btn-court w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+          >
+            {isPending
+              ? contactContent.form.sendingText
+              : contactContent.form.submitText}
+          </button>
+
+          {toast ? (
+            <div
+              className={`flex items-center gap-3 border-2 px-4 py-3 text-sm font-bold ${
+                toast.type === "success"
+                  ? "border-court bg-court text-ink"
+                  : "border-red-600 text-red-700 dark:border-red-400 dark:text-red-300"
+              }`}
+              role="status"
+              aria-live="polite"
             >
-              {isPending
-                ? contactContent.form.sendingText
-                : contactContent.form.submitText}
-            </button>
+              {toast.type === "success" ? (
+                <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden="true" />
+              ) : (
+                <AlertCircle className="h-5 w-5 shrink-0" aria-hidden="true" />
+              )}
+              <span>{toast.message}</span>
+            </div>
+          ) : null}
+        </form>
 
-            <AnimatePresence>
-              {toast ? (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.25 }}
-                  className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-sm ${
-                    toast.type === "success"
-                      ? "border-accent-orange/30 bg-accent-orange/10 text-accent-orange"
-                      : "border-red-500/40 bg-red-500/10 text-red-600 dark:text-red-300"
-                  }`}
-                  role="status"
-                  aria-live="polite"
-                >
-                  {toast.type === "success" ? (
-                    <CheckCircle2
-                      className="h-4 w-4 shrink-0"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <AlertCircle
-                      className="h-4 w-4 shrink-0"
-                      aria-hidden="true"
-                    />
-                  )}
-                  <span>{toast.message}</span>
-                </motion.div>
-              ) : null}
-            </AnimatePresence>
-          </form>
-        </section>
-
-        <aside className="rounded-2xl border border-border bg-surface-muted p-5 sm:p-6">
-          <p className="text-sm leading-relaxed text-muted-foreground">
+        <aside>
+          <p className="text-pretty leading-relaxed text-muted-foreground">
             {contactContent.sidebar.title}
           </p>
 
-          <div className="mt-5 space-y-2">
+          <ul className="mt-6 border-b border-border">
             {socialLinks.map((item) => (
-              <Link
-                key={item.text}
-                href={item.href}
-                target={item.external ? "_blank" : undefined}
-                rel={item.external ? "noopener noreferrer" : undefined}
-                className="flex items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 text-sm font-semibold text-foreground transition hover:border-accent-orange/40 hover:text-accent-orange"
-              >
-                <item.Icon className="h-4 w-4" aria-hidden="true" />
-                {item.text}
-              </Link>
+              <li key={item.text} className="rule-draw row-wipe group">
+                <Link
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  className="flex items-center justify-between px-3 py-4 text-lg font-bold"
+                >
+                  <span className="group-hover:text-ink group-focus-within:text-ink">
+                    {item.text}
+                  </span>
+                  <ArrowUpRight
+                    className="h-5 w-5 group-hover:text-ink group-focus-within:text-ink"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {contactContent.sidebar.note && (
-            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               {contactContent.sidebar.note}
             </p>
           )}
         </aside>
       </div>
-    </div>
+    </>
   );
 }

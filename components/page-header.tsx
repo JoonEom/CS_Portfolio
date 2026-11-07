@@ -1,35 +1,21 @@
-import type { ReactNode } from "react";
-import { AnimatedText, Reveal } from "./motion-primitives";
-
 type PageHeaderProps = {
-  badge: string;
   title: string;
   description: string;
-  icon?: ReactNode;
 };
 
-export function PageHeader({
-  badge,
-  title,
-  description,
-  icon,
-}: PageHeaderProps) {
+/**
+ * Page titles are set in the display voice at poster scale. The heading
+ * carries its own weight: no label above it, no entrance effect.
+ */
+export function PageHeader({ title, description }: PageHeaderProps) {
   return (
-    <header className="max-w-2xl">
-      <Reveal>
-        <span className="eyebrow">
-          {icon}
-          {badge}
-        </span>
-      </Reveal>
-      <h1 className="mt-5 text-balance text-3xl font-semibold tracking-tightest text-foreground sm:text-4xl md:text-[2.75rem]">
-        <AnimatedText text={title} delay={0.1} />
+    <header className="shell pb-10 pt-12 sm:pb-14 sm:pt-20">
+      <h1 className="display text-[clamp(3.75rem,13vw,10.5rem)] leading-[0.82]">
+        {title}
       </h1>
-      <Reveal delay={0.25}>
-        <p className="mt-3 text-pretty text-base leading-relaxed text-muted-foreground">
-          {description}
-        </p>
-      </Reveal>
+      <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+        {description}
+      </p>
     </header>
   );
 }
