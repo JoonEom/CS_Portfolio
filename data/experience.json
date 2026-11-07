@@ -1,5 +1,21 @@
 [
   {
+    "role": "Software Engineer I",
+    "company": "DigitalOcean",
+    "duration": "Sep 2026 – Present",
+    "description": "Software engineer on DigitalOcean's cloud infrastructure platform. Built Python and Bash tooling that automates hypervisor health checks (conntrack, CPU throttling, NVMe) and an alert-triage CLI that pulls alert context, host history, and playbook steps into one command for the on-call rotation. Triage production alerts and run maintenance flows (evacuate, refleet, repave) under a peer-reviewed change process.",
+    "technologies": [
+      "Python",
+      "Bash",
+      "Linux",
+      "Kubernetes",
+      "Grafana",
+      "incident.io",
+      "Jira"
+    ],
+    "link": "https://www.digitalocean.com"
+  },
+  {
     "role": "Founder & Software Engineer",
     "company": "Kairo",
     "duration": "Jun 2026 – Present",
@@ -27,11 +43,11 @@
     "role": "AR Software Engineer",
     "company": "UW Reality Lab (Capstone)",
     "duration": "Jan 2026 – Mar 2026",
-    "description": "Co-developed Blubble, an Apple Vision Pro assistant for neurodivergent users, integrating AVAudioEngine and Nvidia Sortformer for real-time speech diarization.",
+    "description": "Co-developed Blubble, an Apple Vision Pro assistant for neurodivergent users. Built real-time speech diarization (AVAudioEngine + NVIDIA Sortformer) that separates 4 simultaneous speakers at 95% accuracy, a multimodal tone engine for sarcasm detection (80% correct in user testing), and a RAG context engine whose visual aids were rated relevant 85% of the time across 30 testers.",
     "technologies": [
       "Apple Vision Pro",
       "AVAudioEngine",
-      "Nvidia Sortformer",
+      "NVIDIA Sortformer",
       "CoreML",
       "DistilBERT",
       "GPT-4o-mini",

@@ -111,8 +111,9 @@ export default function Home() {
             Looking for someone to build with?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-            I&apos;m open to new grad roles, collaborations, and interesting
-            problems. The fastest way to reach me is a quick note.
+            I&apos;m open to collaborations, interesting problems, and good
+            conversations about building things. The fastest way to reach me is
+            a quick note.
           </p>
           <Link href="/contact" className="btn-primary group mt-7">
             Get in touch

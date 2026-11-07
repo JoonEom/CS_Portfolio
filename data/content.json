@@ -2,7 +2,7 @@
   "site": {
     "name": "Minjoon Eom",
     "tagline": "I love building awesome things",
-    "description": "4th year cs student & hooper looking for new grad opportunities"
+    "description": "Software engineer at DigitalOcean, UW CS student graduating Dec 2026 & hooper"
   },
   "hero": {
     "badge": {
@@ -10,8 +10,8 @@
       "icon": "CircleDot"
     },
     "title": "Minjoon Eom",
-    "role": "4th year CS student at the University of Washington",
-    "subtitle": "Full-stack developer working across applied AI, robotics, and human-centered products — and the founder of Kairo. Currently looking for new grad opportunities.",
+    "role": "Software Engineer at DigitalOcean · UW Computer Science, graduating Dec 2026",
+    "subtitle": "Full-stack developer working across applied AI, cloud infrastructure, and human-centered products — and the founder of Kairo. Currently building cloud infrastructure tooling at DigitalOcean.",
     "buttons": {
       "primary": {
         "text": "Check My Game",
@@ -27,15 +27,15 @@
     "stats": {
       "gpa": "3.7",
       "basketball": "20,000+",
-      "graduation": "Fall 2026"
+      "graduation": "Dec 2026"
     }
   },
   "about": {
     "name": "Minjoon Eom",
-    "bio": "I'm Minjoon Eom, a Computer Science student at the University of Washington (Class of 2026) passionate about full-stack development, AI, and building systems that better the world.",
+    "bio": "I'm Minjoon Eom, a software engineer at DigitalOcean and a Computer Science student at the University of Washington (graduating December 2026) passionate about full-stack development, AI, and building systems that better the world.",
     "education": "UW Computer Science B.S. (3.7 GPA, Seattle WA)",
     "interests": "Full Stack Development, Product Management, Human-Computer Interaction, Basketball",
-    "skills": "Python, Java, JavaScript, TypeScript, SQL, React, Next.js, Docker, AWS",
+    "skills": "Python, Java, TypeScript, JavaScript, SQL, Swift, Bash, React, Next.js, FastAPI, PyTorch, Docker, Kubernetes, AWS",
     "coreThemes": {
       "title": "Besides Coding",
       "descriptions": [
@@ -53,7 +53,7 @@
         },
         {
           "label": "Distributed Systems",
-          "description": "Scalable cloud architectures",
+          "description": "Cloud infrastructure and scalable architectures",
           "icon": "Cpu"
         },
         {
@@ -68,7 +68,7 @@
         },
         {
           "label": "Machine Learning",
-          "description": "Deep learning and neural networks",
+          "description": "LLM fine-tuning, RAG, and model serving",
           "icon": "Compass"
         },
         {
