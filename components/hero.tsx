@@ -9,7 +9,11 @@ import { ShotDiagram } from "./shot-diagram";
 /**
  * First viewport = the thesis. A court-orange field, the name set like a
  * jersey, and a shot diagram that plays once on load and again on request.
- * It is the page's one authored motion; nothing else enters with an effect.
+ *
+ * Layout rule: the text and the diagram never share space. On wide screens
+ * they sit in two columns of one grid, on narrow screens they stack. Nothing
+ * is positioned over anything else, so no window size can put the diagram on
+ * top of a button or a line of copy.
  */
 export function Hero() {
   const hero = getHeroContent();
@@ -21,9 +25,10 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-court text-ink">
-      <div className="shell relative flex min-h-[min(40rem,calc(100svh-4rem))] flex-col justify-between gap-10 pb-0 pt-10 sm:pt-14 lg:min-h-[min(44rem,calc(100svh-4rem))]">
-        <div className="relative z-10 max-w-3xl">
-          <h1 className="display text-[clamp(4.25rem,15vw,12rem)] font-black leading-[0.8]">
+      <div className="shell grid items-end gap-x-10 gap-y-8 pt-10 sm:pt-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
+        <div className="pb-2 lg:pb-14">
+          {/* On wide screens the name is sized to fit its own column */}
+          <h1 className="display text-[clamp(4.25rem,15vw,9rem)] font-black leading-[0.8] lg:text-[clamp(5rem,calc((100vw-5rem)/9.5),7.5rem)]">
             {first}
             <br />
             {last}
@@ -74,7 +79,7 @@ export function Hero() {
 
         <ShotDiagram
           key={shot}
-          className="relative -mx-4 mt-2 w-[calc(100%+2rem)] max-w-none self-end sm:-mx-6 sm:w-[calc(100%+3rem)] lg:absolute lg:-right-10 lg:bottom-0 lg:mx-0 lg:mt-0 lg:w-[66%]"
+          className="-mx-4 w-[calc(100%+2rem)] max-w-none sm:-mx-6 sm:w-[calc(100%+3rem)] md:mx-0 md:ml-auto md:w-full md:max-w-[36rem] lg:max-w-none"
         />
       </div>
     </section>

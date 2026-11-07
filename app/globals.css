@@ -209,6 +209,18 @@
   }
 }
 
+/* Diagram labels are measurements a human has to read, so they stay at least
+   ~13px on screen: 26 user units on the wide layout, 32 when the diagram is
+   scaled down to a phone. */
+.sd-label {
+  font-size: 26px;
+}
+@media (max-width: 767px) {
+  .sd-label {
+    font-size: 32px;
+  }
+}
+
 /* ---- Motion ---------------------------------------------------------- */
 /* Everything below is gated on "no-preference". Without it, or without JS or
    CSS animation support, the page simply shows its finished state. */

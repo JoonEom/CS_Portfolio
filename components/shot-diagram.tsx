@@ -114,7 +114,7 @@ export function ShotDiagram({ className = "" }: { className?: string }) {
 
   return (
     <svg
-      viewBox="0 0 1000 650"
+      viewBox="40 0 960 650"
       role="img"
       aria-label="Dimensioned diagram of a three-point shot arcing into a hoop ten feet above the floor"
       className={`text-ink ${className}`}
@@ -181,14 +181,25 @@ export function ShotDiagram({ className = "" }: { className?: string }) {
         fill="currentColor"
         stroke="none"
         fontFamily="var(--font-geist-mono), ui-monospace, monospace"
-        fontSize="17"
         fontWeight="600"
       >
-        <text x={THREE_X} y={FLOOR_Y + 62} textAnchor="middle">
-          THREE · 23′9″
+        <text
+          className="sd-label"
+          data-part="label"
+          x={THREE_X}
+          y={FLOOR_Y + 66}
+          textAnchor="middle"
+        >
+          THREE 23′9″
         </text>
-        <text x={FREE_THROW_X} y={FLOOR_Y + 62} textAnchor="middle">
-          FREE THROW · 15′
+        <text
+          className="sd-label"
+          data-part="label"
+          x={FREE_THROW_X}
+          y={FLOOR_Y + 66}
+          textAnchor="middle"
+        >
+          FREE THROW 15′
         </text>
       </g>
 
@@ -264,7 +275,8 @@ export function ShotDiagram({ className = "" }: { className?: string }) {
         <line x1="976" y1={FLOOR_Y} x2="994" y2={FLOOR_Y} />
       </g>
       <text
-        className="sd-fade"
+        className="sd-fade sd-label"
+        data-part="label"
         style={draw(1.1)}
         x="974"
         y={(RIM_Y + FLOOR_Y) / 2}
@@ -273,11 +285,24 @@ export function ShotDiagram({ className = "" }: { className?: string }) {
         fill="currentColor"
         stroke="none"
         fontFamily="var(--font-geist-mono), ui-monospace, monospace"
-        fontSize="17"
         fontWeight="600"
       >
-        RIM · 10′
+        RIM 10′
       </text>
+
+      {/* Where the shot starts: a ghost ball on the three-point line, tied to
+          its floor marker so the label and the release point read as one */}
+      <g className="sd-fade" style={draw(0.6)} strokeWidth="2.5" opacity="0.75">
+        <circle cx={P0.x} cy={P0.y} r={BALL_R} strokeDasharray="4 6" />
+        <line
+          x1={P0.x}
+          y1={P0.y + BALL_R + 10}
+          x2={P0.x}
+          y2={FLOOR_Y - 18}
+          strokeDasharray="2 9"
+          strokeWidth="2"
+        />
+      </g>
 
       {/* Trajectory, revealed in step with the ball's horizontal travel */}
       <path
