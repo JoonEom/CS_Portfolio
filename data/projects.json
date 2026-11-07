@@ -10,36 +10,6 @@
     }
   },
   {
-    "title": "DocuMind",
-    "image": "/images/documind.png",
-    "description": "A document-search assistant that answers questions over 2,000 SEC filings, with source citations. Hybrid retrieval and reranking raised answer accuracy from 61% to 84% on a 150-question evaluation set, backed by CI regression tests that fail the build if accuracy drops, Langfuse tracing, and caching that cut cost per query by 45%.",
-    "tags": [
-      "Python",
-      "FastAPI",
-      "pgvector",
-      "Next.js",
-      "Docker",
-      "RAG",
-      "Langfuse"
-    ],
-    "links": {}
-  },
-  {
-    "title": "QueryForge",
-    "image": "/images/queryforge.png",
-    "description": "A text-to-SQL model fine-tuned from Llama 3 8B with QLoRA on 8,000 examples, reaching 82% accuracy versus 79% for a paid API on a 300-example test set. Served with vLLM on an A100 for 100 concurrent users at 1,800 tokens/sec (p95 latency 400 ms) and 85% lower cost per million tokens, with Grafana dashboards and Locust load tests that found the breaking point at 140 users.",
-    "tags": [
-      "PyTorch",
-      "QLoRA",
-      "vLLM",
-      "Docker",
-      "Prometheus",
-      "Grafana",
-      "Llama 3"
-    ],
-    "links": {}
-  },
-  {
     "title": "RootMap",
     "image": "/images/rootmap.jpg",
     "description": "An iOS nutrition app that translates every meal into what it actually does for your body — mapping food to 26 micronutrients and six body zones instead of counting calories. Photo or plain-text meal logging is parsed by GPT-4o-mini and matched against the USDA FoodData Central database.",

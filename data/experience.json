@@ -42,7 +42,7 @@
   {
     "role": "AR Software Engineer",
     "company": "UW Reality Lab (Capstone)",
-    "duration": "Jan 2026 – Mar 2026",
+    "duration": "Dec 2025 – Jun 2026",
     "description": "Co-developed Blubble, an Apple Vision Pro assistant for neurodivergent users. Built real-time speech diarization (AVAudioEngine + NVIDIA Sortformer) that separates 4 simultaneous speakers at 95% accuracy, a multimodal tone engine for sarcasm detection (80% correct in user testing), and a RAG context engine whose visual aids were rated relevant 85% of the time across 30 testers.",
     "technologies": [
       "Apple Vision Pro",
